@@ -1,0 +1,266 @@
+<!doctype html>
+<!--[if lt IE 7 ]> <html class="ie ie6"> <![endif]-->
+<!--[if IE 7 ]>    <html class="ie ie7"> <![endif]-->
+<!--[if IE 8 ]>    <html class="ie8"> <![endif]-->
+<!--[if IE 9 ]>    <html class="ie9"> <![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!--> <html> <!--<![endif]-->
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>网站</title>
+    <%= stylesheet_link_tag 'global','login'%>
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.0/jquery.min.js"></script>
+    <%= javascript_include_tag :defaults, 'jquery.form', 'jquery.tools','jquery.lazyload.pack' %>
+    <%= csrf_meta_tag %>
+    <!--[if lte IE 8]>
+    <%= stylesheet_link_tag 'login_iefix' %>
+	<![endif]-->
+
+  </head>
+  <body>
+    <!-- 右上角的状态显示 -->
+    <div id="web_loading">Loading...</div>
+    <div id="n_header">
+      <!--usr-->
+      <div id="n_header_line">
+        <div class="n_header_inner"> <a title="虾米音乐网(xiami.com) - 高品质音乐 发现 分享" href="/" class="logo">虾米音乐网(xiami.com) - 高品质音乐 发现 分享</a>
+          <form action="/search" method="get" role="search" id="search_box">
+            <input type="text" autocomplete="off" id="search_query" name="key" value="搜索你想要的东东..." title="搜索你想要的东东..." onBlur="searchBlur();" onClick="searchFocus();">
+            <input type="submit" id="search_btn" class="" title="搜索" value="">
+          </form>
+          <div id="auto_complete" class="old hidden"></div>
+          <div id="n_header_user">
+            <% if user_signed_in? %>
+              <div class="n_header_user_loged">
+                <dl>
+                  <dt>
+                    <span><a href="/u/<%= current_user[:_id] %>"> <img src="http://img.xiami.com/./images/avatar/97/2844897/28448971297700282_1.jpg" width="22" height="22"> <strong><%= current_user[:name] %></strong></a><b></b></span></dt>
+                  <dd>
+                    <ul>
+                      <li><a href="/u/<%= current_user[:_id] %>">个人主页</a></li>
+                      <% if current_user[:role] == 88 %><li><a href="/admin">后台管理</a></li><% end %>
+                      <li><a href="/space/following/u/<%= current_user[:id] %>">关注/粉丝</a></li>
+                      <li><a href="/property/myproperties">我的道具</a></li>
+                      <li><a href="/account">帐户</a></li>
+                      <li><a href="/share">设置</a></li>
+                      <li><%= link_to '退出', destroy_user_session_path %></li>
+                    </ul>
+                  </dd>
+                </dl>
+              </div>
+            <% else %>
+              <div class="n_header_user_unlog">
+                <%= link_to '免费注册', new_user_registration_path, :class=>'ti' %><span>|</span><%= link_to '登录', new_user_session_path, :class=>'ti', :title=>'登录' %>
+              </div>
+            <% end %>
+          </div>
+        </div>
+      </div>
+
+
+      <!--sys-->
+      <div class="n_header_sys clearfix">
+        <div id="n_header_channel">
+          <ul class="clearfix">
+            <li id="nh_home"><a title="首页" href="/" class="cname">首页</a></li>
+            <li class="nh_sys_menu" id="nh_gall"><a title="" href="/gall" class="cname">购物分享</a><span><a title="" href="javascript:;" class="show_nhsysMenu">显示菜单</a></span>
+              <div style="display: none;" class="nhsys_menu">
+                <div class="nhsys_menu_inner"> <a title="排行榜" href="/music/hot">排行榜</a> <a title="音乐风格" href="/music/style">音乐风格</a> <a title="分类试听" href="/music/category">分类试听</a> <a title="新碟" href="/music/newalbum">新碟</a> <a title="虾米猜" href="/artist/recommended">虾米猜</a> <a title="专题" href="/events">专题</a> </div>
+              </div>
+            </li>
+            <li class="nh_sys_menu" id="nh_look"><a title="" href="/look" class="cname">画报</a><span><a title="" href="javascript:;" class="show_nhsysMenu">显示菜单</a></span>
+              <div style="display: none;" class="nhsys_menu">
+                <div class="nhsys_menu_inner"> <a title="概览" href="/collect">概览</a> <a title="原创精选集" href="/collect/orinew">原创精选集</a> <a title="求助精选集" href="/collect/helpnew">求助精选集</a> <a title="主题精选集" href="/collect/sub">主题精选集</a> <a title="我的精选集" href="/space/collect/u/2844897" class="lines">我的精选集</a> <a title="我收藏的精选集" href="/space/collect-fav/u/2844897">我收藏的精选集</a> </div>
+              </div>
+            </li>
+            <li class="nh_sys_menu" id="nh_group"><a title="商场" href="/shop" class="cname">商场</a><span><a title="" href="javascript:;" class="show_nhsysMenu">显示菜单</a></span>
+              <div style="display: none;" class="nhsys_menu">
+                <div class="nhsys_menu_inner"> <a title="小组概览" href="/events#Mevent">音乐专题</a> <a title="热门话题" href="/events#Mperform">演出/活动</a> </div>
+              </div>
+            </li>
+            <li class="nh_sys_menu" id="nh_topic"><a title="小组" href="/group" class="cname">专题</a><span><a title="" href="javascript:;" class="show_nhsysMenu">显示菜单</a></span>
+              <div style="display: none;" class="nhsys_menu">
+                <div class="nhsys_menu_inner"> <a title="小组概览" href="/events#Mevent">音乐专题</a> <a title="热门话题" href="/events#Mperform">演出/活动</a> </div>
+              </div>
+            </li>
+            <li class="nh_sys_menu" id="nh_software"><a title="软件" href="/software" class="cname">软件</a><span><a title="" href="javascript:;" class="show_nhsysMenu">显示菜单</a></span>
+              <div style="display: none;" class="nhsys_menu">
+                <div class="nhsys_menu_inner"> <a title="小组概览" href="/software/iphone">手机客户端</a> <a title="热门话题" href="/software/shark">虾歌</a> <a title="热门话题" href="/software/xiamifm">电台插件</a> <a title="热门话题" href="/xbox">百宝箱</a> <a title="虾米电台 Lite" href="/software/xiamiair">虾米电台 Lite</a> </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <div id="n_header_logined">
+          <div class="g-login">
+            <ul>
+              <li class="pmicon "><a title="0条未读站内信" href="/member/mypm">(0)</a></li>
+              <li class="narrow">-</li>
+              <li class="recent">
+                <a id="recent_button" href="/space/charts-recent/u/2844897" onClick="_gaq.push(['_trackEvent', '最近播放', '展开菜单']);">最近浏览</a>
+              </li>
+            </ul>
+            <div id="recent_history" class="r3px hidden">
+              <div class="recent_inner"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!--shine-->
+      <div class="nh_shine">&nbsp;</div>
+    </div>
+
+    <%= yield %>
+
+
+    <div id="footer">
+      <div class="clearfix" id="foot_wrap">
+        <div class="clearfix mgt25" id="foot_content">
+          <div class="fl">
+            <dl>
+              <dt>发现音乐</dt>
+              <dd><a title="排行榜" href="http://www.xiami.com/music/hot">排行榜</a></dd>
+              <dd><a title="音乐风格/分类" href="http://www.xiami.com/music/style">音乐风格/分类</a></dd>
+              <dd><a title="精选集" href="http://www.xiami.com/collect">精选集</a></dd>
+              <dd><a title="虾米电台" href="http://www.xiami.com/radio">虾米电台</a></dd>
+              <dd><a title="音乐专题" href="http://www.xiami.com/events">音乐专题</a></dd>
+            </dl>
+
+            <dl>
+              <dt>关于</dt>
+              <dd><a title="关于我们" href="http://blog.xiami.com/?page_id=2">关于我们</a></dd>
+              <dd><a title="虾米每天在进步" href="http://blog.xiami.com/">虾米每天在进步</a></dd>
+              <dd><a title="独立音乐人合作" href="http://www.xiami.com/musician-contact">独立音乐人合作</a></dd>
+              <dd><a title="联系我们" href="http://www.xiami.com/contact">联系我们</a></dd>
+              <dd><a title="友情链接" href="http://www.xiami.com/links">友情链接</a></dd>
+            </dl>
+
+            <dl>
+              <dt>特色服务</dt>
+              <dd><a title="手机虾米" href="http://www.xiami.com/software/iphone">手机虾米</a><sup class="hot"></sup></dd>
+              <dd><a title="虾米播播" href="http://www.xiami.com/widget">虾米播播</a></dd>
+              <dd><a title="音乐小游戏" href="http://www.xiami.com/coop/game/id/1">音乐小游戏</a></dd>
+              <!---->
+              <!--<dd><a href="http://www.xiami.com/music/newalbum">新碟预告</a></dd>-->
+              <!--  <dd><a href="/">虾米电台桌面版</a></dd>-->
+              <dd><a title="百宝箱" href="http://www.xiami.com/xbox">百宝箱</a></dd>
+            </dl>
+
+            <dl>
+              <dt>更多</dt>
+              <dd><a title="虾米招聘" href="http://www.xiami.com/job">虾米招聘</a></dd>
+              <dd><a title="使用帮助" href="http://www.xiami.com/websitehelp">使用帮助</a></dd>
+              <dd><a title="RSS订阅" href="http://www.xiami.com/subscription">RSS订阅</a></dd>
+              <dd><a title="添加虾米还没有的资料" href="http://www.xiami.com/wiki/addalbum">添加虾米还没有的资料</a></dd>
+              <dd><a title="提建议" href="http://www.xiami.com/group/join/id/10147?done=/group/thread-new/id/10147">提建议</a></dd>
+            </dl>
+          </div>
+
+          <div class="fr" id="cooperation">
+            <p class="vam gray labels">合作伙伴： <a href="/partners">
+                <img title="摩登天空" width="40" height="40" alt="摩登天空" src="http://img.xiami.com/res/img/common/links/mdtk.gif" />
+                <img title="十三月" width="40" height="40" alt="十三月" src="http://img.xiami.com/res/img/common/links/13y.gif" />
+                <img title="华研国际" width="40" height="40" alt="华研国际" src="http://img.xiami.com/res/img/common/links/him.png" />
+                <img title="海蝶音乐" width="40" height="40" alt="海蝶音乐" src="http://img.xiami.com/res/img/common/links/obi.gif" />
+                <img title="映象唱片" width="40" height="40" alt="映象唱片" src="http://img.xiami.com/res/img/common/links/HighNOTE.jpg" />
+                <img title="飞鱼音乐" width="40" height="40" alt="飞鱼音乐" src="http://img.xiami.com/res/img/common/links/fyyy.gif" />
+                <img title="华纳版权中国" width="40" height="40" alt="华纳版权中国" src="http://img.xiami.com/res/img/common/links/warner.jpg" /></a>
+            </p>
+            <hr class="null">
+            <p class="vam gray">正版音乐战略合作： <a href="http://www.top100.cn/" target="_blank" title="巨鲸音乐网">    <img width="88" height="29" alt="巨鲸音乐网" src="http://img.xiami.com/res/v3/img/top100-logo.gif"> </a> </p>
+            <!-- 雪佛兰广告 -->
+            <script language='javascript' type='text/javascript' src='http://i.adsame.com/sammix/p2.js' ></script>
+            <script language='javascript' type='text/javascript' src='http://sammix.adsame.com/s?z=sammix&la=52' ></script>
+          </div>
+        </div>
+
+        <div class="footer_copyright">
+          <p class="fl vam gray" id="follow_xiami">关注虾米：
+            <a href="http://t.sina.com.cn/xiamixiamixiami" title="新浪微博"><i class="social_gray sina"></i></a>
+            <a href="http://page.renren.com/699099957/index" title="人人网"><i class="social_gray renren"></i></a>
+            <a href="http://new.qzone.qq.com/810167634" title="QQ 空间"><i class="social_gray qzone"></i></a>
+            <a href="http://t.qq.com/xiaxiaomi" title="腾讯微博"><i class="social_gray qqt"></i></a>
+            <a href="http://t.sohu.com/xiamimusic" title="搜狐微博"><i class="social_gray sohu"></i></a>
+            <a href="http://www.douban.com/people/xiaxiaomi" title="豆瓣"><i class="social_gray douban"></i></a>
+            <!-- <a href="http://t.163.com/musicxiami" title="网易微博"><i class="social_gray t163"></i></a> -->
+          </p>
+          <p class="fr" id="copyright"> <span>&copy; 2007 - 2011 <a href="http://www.xiami.com/">虾米网</a>&nbsp;&nbsp;&nbsp;&nbsp;文网文[2011]0012-005&nbsp;&nbsp;&nbsp;&nbsp;</span> <a href="http://www.miibeian.gov.cn/" target="_blank" title="浙ICP备08103200号">浙ICP备08103200号</a> - <a href="http://www.xiami.com/sitemap" title="网站地图">网站地图</a> <strong class="xiami_motto ti" title="give music a chance">"give music a chance"</strong> </p>
+        </div>
+      </div>
+    </div> <!-- #foot_wrap -->
+
+    <div id="dialog_clt" class="dialog_popup">
+      <div class="dialog_main"></div>
+      <div class="dialog_sharp"></div>
+      <div class="jqDrag"></div>
+    </div>
+
+    <div id="personal_hover" style="top: 1184px; left: 922px; display: none; ">	<div id="personal_hover_shadow" class="lightShadow"></div>
+      <div id="personal_hover_inner">
+        <a id="personal_hover_link" href="/u/3430350" title=" 来访时间: 2011-04-12 12:24 "><img id="personal_hover_img" src="http://img.xiami.com/./images/avatar/50/3430350/34303501301581368_1.jpg"></a>
+        <img class="hidden" id="personal_hover_pulser_img" src="http://img.xiami.com/res/img/default/loading50x50.gif" width="50" height="50" alt="">
+        <div id="personal_trigger_bar">
+          <a class="personal_drop active" id="personal_menu_down" href="javascript:;" title="">更多内容</a>
+          <div id="personal_menu_show" class="personal_buddy_menus" style="">
+            <span class="blank_block"></span>
+            <p id="personal_relationship_g"><span class="be_contacts"><strong>片刻的欢娱和不幸</strong></span><span class="be_stranger"><a href="javascript:;" onclick="attention(3430350,1);">(加关注)</a></span></p>
+            <div id="personal_menu_other_div">
+              <a id="personal_o_index" class="blocks" href="/u/3430350" title="片刻的欢娱和不幸的个人主页">片刻的欢娱和不幸的个人主页</a>
+              <!--		<a id="personal_o_minifeed"  class="blocks" href="/space/feed/u/3430350" title="近况">近况</a>-->
+              <a id="personal_o_library" class="blocks" href="/space/lib-song/u/3430350" title="片刻的欢娱和不幸的音乐库">音乐库</a>
+              <a id="personal_o_recommend" class="blocks" href="/space/rec/u/3430350" title="片刻的欢娱和不幸的分享">分享</a>
+              <a id="personal_o_contact" class="blocks" href="/space/following/u/3430350" title="片刻的欢娱和不幸的关注和粉丝">关注/粉丝</a>
+              <a id="personal_o_collect" class="blocks" href="/space/collect/u/3430350" title="片刻的欢娱和不幸的精选集">精选集</a>
+              <!--		<a id="personal_o_charts"  class="blocks" href="/space/charts/u/3430350" title="个人排行榜">个人排行榜</a>-->
+              <a id="personal_o_topic" class="blocks" href="/space/group-thread/u/3430350" title="片刻的欢娱和不幸参与过的话题">参与的话题</a>
+            </div>
+            <a id="personal_msgsned" class="blocks_out" href="/member/sendpm?to_user_id=3430350" title="发站内信">发站内信</a>
+            <a id="personal_block_usr" class="blocks_out" href="javascript:;" onclick="blacklist('3430350','片刻的欢娱和不幸');return false;" title="加入黑名单">加入黑名单</a>
+            <div id="person_menu_self_div"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <textarea id="personal_hover_tpl" style="display:none;">	&lt;div id="personal_hover_shadow" class="lightShadow"&gt;&lt;/div&gt;
+	&lt;div id="personal_hover_inner"&gt;
+	&lt;a id="personal_hover_link" href="/u/%uid%" title=" %gmt_access% "&gt;&lt;img id="personal_hover_img" src="%avatar%" /&gt;&lt;/a&gt;
+	&lt;img class="hidden" id="personal_hover_pulser_img" src="http://img.xiami.com/res/img/default/loading50x50.gif" width="50" height="50" alt="" /&gt;
+	&lt;div id="personal_trigger_bar"&gt;
+	&lt;a class="personal_drop" id="personal_menu_down" href="javascript:;" title=""&gt;更多内容&lt;/a&gt;
+	&lt;div id="personal_menu_show" class="personal_buddy_menus" style="display:none;"&gt;
+	&lt;span class="blank_block"&gt;&lt;/span&gt;
+	&lt;p id="personal_relationship_g"&gt;&lt;span class="be_contacts"&gt;&lt;strong&gt;%nick_name%&lt;/strong&gt;&lt;/span&gt;&lt;/p&gt;
+	&lt;div id="personal_menu_other_div"&gt;
+		&lt;a id="personal_o_index" class="blocks" href="/u/%uid%" title="%nick_name%的个人主页"&gt;%nick_name%的个人主页&lt;/a&gt;
+&lt;!--		&lt;a id="personal_o_minifeed"  class="blocks" href="/space/feed/u/%uid%" title="近况"&gt;近况&lt;/a&gt;--&gt;
+		&lt;a id="personal_o_library"  class="blocks" href="/space/lib-song/u/%uid%" title="%nick_name%的音乐库"&gt;音乐库&lt;/a&gt;
+        &lt;a id="personal_o_recommend"  class="blocks" href="/space/rec/u/%uid%" title="%nick_name%的分享"&gt;分享&lt;/a&gt;
+        &lt;a id="personal_o_contact"  class="blocks" href="/space/following/u/%uid%" title="%nick_name%的关注和粉丝"&gt;关注/粉丝&lt;/a&gt;
+		&lt;a id="personal_o_collect"  class="blocks" href="/space/collect/u/%uid%" title="%nick_name%的精选集"&gt;精选集&lt;/a&gt;
+&lt;!--		&lt;a id="personal_o_charts"  class="blocks" href="/space/charts/u/%uid%" title="个人排行榜"&gt;个人排行榜&lt;/a&gt;--&gt;
+		&lt;a id="personal_o_topic"  class="blocks" href="/space/group-thread/u/%uid%" title="%nick_name%参与过的话题"&gt;参与的话题&lt;/a&gt;
+	&lt;/div&gt;
+	&lt;a id="personal_msgsned" class="blocks_out" href="/member/sendpm?to_user_id=%uid%" title="发站内信"&gt;发站内信&lt;/a&gt;
+	&lt;a id="personal_block_usr" class="blocks_out" href="javascript:;" onclick="blacklist('%uid%','%nick_name%');return false;" title="加入黑名单"&gt;加入黑名单&lt;/a&gt;
+	&lt;div id="person_menu_self_div"&gt;&lt;/div&gt;
+	&lt;/div&gt;
+	&lt;/div&gt;
+	&lt;/div&gt;
+    </textarea>
+
+    <script>
+      
+      var myUid = parseInt('2844897');
+      $('.personalDropDown').personalDropMenu({myUid:myUid});
+    </script>
+    
+    <script>
+      $('body').click(function(e){
+        $(".ctrl_gears_more").addClass('hidden');
+        $(".bt_cdgears").removeClass('active');
+      });
+      $("#web_loading").remove();
+      $(".bt_cdgears").mouseover(function(){$(this).addClass('active').next().removeClass('hidden').show();});
+      $('#nh_<%= self.controller_name %>').addClass('current')
+    </script>
+  </body>
+</html>

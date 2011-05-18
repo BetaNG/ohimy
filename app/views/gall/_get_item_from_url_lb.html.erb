@@ -1,0 +1,43 @@
+<%= form_for :twitter, :url=>'/gall/create', :html=>{:id=>'new_twitter_form'} do |form| %>
+<div class="pub_goods_s2">
+	<div class="pis2_img fl r5">
+		<img class="r5" src="<%= @item['pic_url'] %>_100x100.jpg">
+		<img class="g_tag" src="/images/goods_tag_w.png">
+		<input type="hidden" name="num_iids[]" value="<%= @item['num_iid'] %>">
+	</div>
+	<div class="pis2_detail">
+		<a class="pgs2_title" target="_blank" href="http://mogujie.cn/tgo/?to=http%3A%2F%2Fitem.taobao.com%2Fitem.htm%3Fid%3D6889837344%26cm_cat%3D50041197"><%= @item['title'] %></a>
+		<textarea id="pub_content2" name="content" class="pis2_txt r5" style="height: 60px; color: rgb(0, 0, 0); ">说说你的推荐理由</textarea>
+		<div class="mt10">
+			<div class="fl">
+				<%= form.submit "发表", :class=>"pis2_btn r5" %>
+				<a href="javascript:;" id="pub_cancel2" class="pis2_cancel">取消</a>
+			</div>
+			<div class="pub_out pis2_out fr">
+				<a target="_blank" href="/settings/bind">同步设置</a>
+			</div>
+		</div>
+	</div>
+</div>
+<% end %>
+<script>
+	$("#twitter_submit").live("click", function() {
+		$("#new_twitter_form").ajaxSubmit( function(data) {
+			$(".pub_type1").html(OMTEMPLATE.pub_goods_step1)
+			$("#wc_share .t_l").prepend(data)
+		})
+		return false;
+	})
+	// 字数统计
+	var $t_tweet = $('#pub_content2');
+	var $t_count = $('.word_count i');
+	$t_tweet.live("keyup", function(e) {
+		var num = $t_tweet.val().length;
+		if (num > 140)
+			$t_count
+			.html('<span style="color:red">' + num.toString()
+			+ '</span>');
+		else
+			$t_count.html(num.toString());
+	}).trigger('keyup')
+</script>

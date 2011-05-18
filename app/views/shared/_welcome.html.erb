@@ -1,0 +1,87 @@
+<script>
+  //根据用户的时间显示问候语
+  var $welcome = $('#wcn_content');
+  if($welcome.size()>0){
+    var warning_arr=[];
+    var welcome_arr=[];
+    warning_arr.push('你觉得现在这个时间更适合听什么呢? <a href="/group/thread-detail/tid/20282" title="说说你的想法">说说你的想法</a>');
+    warning_arr.push('玩几局 <a href="/coop/game/id/1" title="连连看">连连看</a>，活跃活跃大脑吧?');
+    warning_arr.push('如果你的朋友也来听虾米?虾米会更有趣。 试试 <a href="http://www.xiami.com/member/invite" title="邀请好友">邀请好友</a>，还能赚积分');
+    warning_arr.push('兔年大吉，<a href="http://www.xiami.com/event/rabbit-year">快来看看虾小米派发给你多少个压岁红包</a>');
+    welcome_arr.push([0,2,"<a class=hide href=http://www.xiami.com/song/154103/wuye0:03?trace_index_welcome>午夜0：03</a>，他们都已经睡了，我却还在想，要听哪一首歌？"]);
+    welcome_arr.push([0,2,"<a class=\"hide\" href=\"http://www.xiami.com/album/2699/yeshenrenjing\">夜深人静</a>，枕边书香，如果明天不上班，晚上要做什么？"]);
+    welcome_arr.push([0,2,"<a class=\"hide\" href=\"http://www.xiami.com/song/154103/wuye0:03\">午夜0：03</a>，他们都已经睡了，我却还在想，要听哪一首歌？"]);
+    welcome_arr.push([0,2,"夜已静，<a class=\"hide\" href=\"http://www.xiami.com/song/showcollect/id/2774/[dengluyemian]+I+am+I+dang\">当我是真实的自己</a>，要写一篇什么样的日记呢？"]);
+    welcome_arr.push([0,2,"<a class=\"hide\" href=\"http://www.xiami.com/album/10203/dengbudaoshenye\">等不到深夜</a>，就已经开始有一点点无聊了吗？"]);
+    welcome_arr.push([2,4,"<a class=\"hide\" href=\"http://www.xiami.com/song/384430/ziyeershi,nizuoshime\">子夜二时，你做什么？</a>是清闲自得，还是苦命加班？嘻嘻！"]);
+    welcome_arr.push([2,4,"有一些<a class=\"hide\" href=\"http://www.xiami.com/album/6034/kuanrong\">宽容</a>的念头，在深夜萌动，让来的来，过去的过去！"]);
+    welcome_arr.push([2,4,"如果你也一样醒着，此刻我们都需要一本<a class=\"hide\" href=\"http://www.xiami.com/album/1497/shimianshengjing\">失眠圣经</a>吧！"]);
+    welcome_arr.push([2,4,"抬头望，在<a class=\"hide\" href=\"http://www.xiami.com/album/2651/yueguangbianjing(xinlinggangqin1)\">月光边境</a>，你能看见心中那个模糊的身影吗？"]);
+    welcome_arr.push([4,6,"当<a class=\"hide\" href=\"http://www.xiami.com/song/384595/quanshijieshimian\">全世界失眠</a>，天空即将划出的光亮，还有谁在等待？"]);
+    welcome_arr.push([4,6,"<a class=\"hide\" href=\"http://www.xiami.com/song/373887/xinxianglingchensidiandetiandelan\">心像凌晨四点的天的蓝</a>，隐隐约约，能看到光亮的雀跃？"]);
+    welcome_arr.push([4,6,"远处，有一朵花<a class=\"hide\" href=\"http://www.xiami.com/album/6369/nufang\">怒放</a>在，天即将要亮起来的时候！"]);
+    welcome_arr.push([4,6,"准备通宵了吗？在<a class=\"hide\" href=\"http://www.xiami.com/album/6907/richu\">日出</a>之前，你还要做点什么呢？"]);
+    welcome_arr.push([6,8,"在 <a class=\"hide\" href=\"http://www.xiami.com/song/43542/weifeng+zaochen\">微风早晨</a>，油条热粥，今天你在什么样的心情中醒来？"]);
+    welcome_arr.push([6,8,"每一天都要问自己，今天<a class=\"hide\" href=\"http://www.xiami.com/song/378580/qichuang\">起床</a>的时候，是什么心情？"]);
+    welcome_arr.push([6,8,"<a class=\"hide\" href=\"http://www.xiami.com/song/380253/ruguoyouyitian\">如果有一天</a>，当我醒来，整个世界充满了青草香……"]);
+    welcome_arr.push([6,8,"早晨的天气，骑着单车，迎风听见，自己<a class=\"hide\" href=\"http://www.xiami.com/song/showcollect/id/2775\">心中的电台</a>！"]);
+    welcome_arr.push([8,10,"你终于在办公室里清醒了吗？那么，来杯<a class=\"hide\" href=\"http://www.xiami.com/album/2914/Coffee+Or+Tea\">Coffee Or Tea</a>？"]);
+    welcome_arr.push([8,10,"你<a class=\"hide\" href=\"http://www.xiami.com/artist/7330/qingxing\">清醒</a>了没有？摇摆灵魂的早晨，靠一杯咖啡生存。"]);
+    welcome_arr.push([8,10,"一位迟到的同学说，换了谁都有不小心<a class=\"hide\" href=\"http://www.xiami.com/album/11604/dacuoche+dianyingyuanshengdadie\">搭错车</a>的时候嘛！"]);
+    welcome_arr.push([8,10,"会不会怀念，空气中传来的，热稀饭炸油条的<a class=\"hide\" href=\"http://www.xiami.com/album/12375/xiaochou\">味道</a>？"]);
+    welcome_arr.push([10,12,"如果每天午餐都有人约， <a class=\"hide\" href=\"http://www.xiami.com/song/386954/lanhuaxiaoguan,12dianjian\">兰花小馆，12点见</a>，会更幸福吗？"]);
+    welcome_arr.push([10,12,"喝口水，深呼吸，继续加油！ <a class=\"hide\" href=\"http://www.xiami.com/album/4419/zheyiqiemeiyouxiangxiangdenamezao\">这一切没有想象的那么糟</a>！"]);
+    welcome_arr.push([10,12,"是吃快餐，还是<a class=\"hide\" href=\"http://www.xiami.com/song/69048/danchaofan\">蛋炒饭</a>？每天的午饭会让你兴趣索然么？"]);
+    welcome_arr.push([10,12,"窗外是阳光，或是下<a class=\"hide\" href=\"http://www.xiami.com/album/9609/dayu\">大雨</a>，会带来完全不同的音乐心情吧。"]);
+    welcome_arr.push([12,14,"<a class=\"hide\" href=\"http://www.xiami.com/song/381280/mingriwuhou\">明日午后</a>，我们的表情，应该要有一点不一样吧，哈哈？"]);
+    welcome_arr.push([12,14,"出去吃顿中饭散个步，会不会有一次<a class=\"hide\" href=\"http://www.xiami.com/album/312883/qi\">美丽的邂逅</a>，嘿嘿？"]);
+    welcome_arr.push([12,14,"午休时分，遗忘忙碌的一切，我决定<a class=\"hide\" href=\"http://www.xiami.com/song/showcollect/id/280/daishangerjiqulvxing\">戴上耳机，去旅行</a>。"]);
+    welcome_arr.push([12,14,"1号餐，<a class=\"hide\" href=\"http://www.xiami.com/album/15083/2haocan\">2号餐</a>，3号餐，我们最多就只有这么点选择吗？"]);
+    welcome_arr.push([14,16,"<a class=\"hide\" href=\"http://www.xiami.com/song/385074/xiawusandian\">下午三点</a>钟，偶然的思绪飞扬，遇见了什么样的自己？"]);
+    welcome_arr.push([14,16,"今天的下午茶时光，我不要去必胜客，我要吃<a class=\"hide\" href=\"http://www.xiami.com/album/8940/sankemaobinggan\">三颗猫饼干</a>，哈哈。"]);
+    welcome_arr.push([14,16,"要是今天更努力，<a class=\"hide\" href=\"http://www.xiami.com/album/306155/yanxiaohongxiaohudie\">明天的下午茶</a>时间就能更加悠闲吧？"]);
+    welcome_arr.push([14,16,"在有点<a class=\"hide\" href=\"http://www.xiami.com/album/308560/huanjinyijinxiao\">微风的午后</a>，懒洋洋的自己，一种昏昏欲睡的享受。"]);
+    welcome_arr.push([16,18,"这是<a class=\"hide\" href=\"http://www.xiami.com/album/416/xiawudeyichuxi\">下午的一出戏</a>，坐上公交车，假装自己在流浪！"]);
+    welcome_arr.push([16,18,"暖洋洋的下午，走神，再走神，突然想起<a class=\"hide\" href=\"http://www.xiami.com/song/showcollect/id/203\">我们一起唱过的歌</a>。"]);
+    welcome_arr.push([16,18,"如果<a class=\"hide\" href=\"http://www.xiami.com/album/6225/zhegexiawuhenwuliao\">这个下午很无聊</a>，来一秒一秒把时间数过去吧？"]);
+    welcome_arr.push([16,18,"你会偶尔需要去寻找一种，没有负担又简简单单的<a class=\"hide\" href=\"http://www.xiami.com/album/1140/chongdong\">冲动</a>吗？"]);
+    welcome_arr.push([18,20,"<a class=\"hide\" href=\"http://www.xiami.com/song/385191/jintiandewanjianxinwen\">今天的晚间新闻</a>，会说出哪些，柴米油盐的小幸福呢？"]);
+    welcome_arr.push([18,20,"让美食来的更猛烈些，谁管明天重几斤， <a class=\"hide\" href=\"http://www.xiami.com/album/15101/ranshaoba!xiaoyuzhou\">燃烧吧！小宇宙！</a>"]);
+    welcome_arr.push([18,20,"你是一个<a class=\"hide\" href=\"http://www.xiami.com/group/10418\">常年挤公交</a>的人吗？遇见了很多精彩的故事吧？"]);
+    welcome_arr.push([18,20,"吃过了吗？吃饱了吗？我们这就来唱一首嘹亮的<a class=\"hide\" href=\"http://www.xiami.com/album/6196/ziyouge+1988-1994\">自由歌</a>吧！"]);
+    welcome_arr.push([20,22,"既然<a class=\"hide\" href=\"http://www.xiami.com/album/1810/yuyeyumeili\">愈夜愈美丽</a>，那么，就等着，看夜再深一点吧？"]);
+    welcome_arr.push([20,22,"<a class=\"hide\" href=\"http://www.xiami.com/album/7576/danghuairenhuanmeibianhuaidewanshang\">当坏人还没变坏的晚上</a>，我们偷偷的哼一首快乐的歌吧！"]);
+    welcome_arr.push([20,22,"听说，人间有终极的<a class=\"hide\" href=\"http://www.xiami.com/album/33085/sanzhongxingfu\">三种幸福</a>，你觉得会是哪三种呢？"]);
+    welcome_arr.push([20,22,"在这样一个晚上，是否能看见，我们在<a class=\"hide\" href=\"http://www.xiami.com/song/showcollect/id/2393/aiqingshangdewusuoshishi\">爱情上的无所事事</a>？"]);
+    welcome_arr.push([22,24,"华丽<a class=\"hide\" href=\"http://www.xiami.com/album/6993/wuyechang\">午夜场</a>，我们怎么能轻易隐藏那些多余的情绪？"]);
+    welcome_arr.push([22,24,"<a class=\"hide\" href=\"http://www.xiami.com/song/showcollect/id/5556/[+jiuyuetaxing+]+�yaruimou\">怀念的播音员</a>已经远去，深夜，也就显得更加幽远了吧？"]);
+    welcome_arr.push([22,24,"既然<a class=\"hide\" href=\"http://www.xiami.com/album/10406/yetaihei\">夜太黑</a>，何不闭上双眼，只用一颗心侧耳聆听？"]);
+    welcome_arr.push([22,24,"<a class=\"hide\" href=\"http://www.xiami.com/song/18899/leiliaoba\">累了吧</a>，一杯温开水、一本枕边书，需要好好休息一下吗？"]);
+
+    var showWelcome = function(){
+      var rnd = Math.floor(Math.random() * 10);
+      if(rnd<warning_arr.length){
+        $welcome.html(warning_arr[rnd]);
+        return;
+      }
+
+      var Digital=new Date();
+      var hours=Digital.getHours();
+      var minutes=Digital.getMinutes();
+      var welcome_tmp = [];
+      for(var i=0;i<=welcome_arr.length-1;i++){
+        if(welcome_arr[i][0]<=hours && welcome_arr[i][1]>=hours){
+          welcome_tmp.push(welcome_arr[i][2]);
+        }
+      }
+
+      rnd = Math.floor(Math.random() * welcome_tmp.length);
+      if(hours<=12) hours = "AM "+hours;
+      if(hours>12) hours = "PM " +(hours -12);
+      $welcome.html(hours + ':' + minutes + ' ' + welcome_tmp[rnd]);
+    }
+
+    showWelcome();
+    setInterval(showWelcome,10000);
+  }
+</script>

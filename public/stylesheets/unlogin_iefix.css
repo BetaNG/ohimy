@@ -1,0 +1,56 @@
+/* index - unlogin - iefix stylesheet for Xiami v3 [raw] @ 2010-12-21 by disinfeqt */
+.ie input{margin-top:0;vertical-align:text-bottom;}
+.ie7 img{-ms-interpolation-mode:bicubic}
+.ie #search,.ie6 #top_nav li,.ie6 ul.album_list,.ie6 #auto_complete a div.img{display:inline}
+.ie6 .sec_content,.ie6 #index_timeline ul li .share_to{zoom:1}
+.ie6 .sec_content{overflow:hidden}
+.ie #header{z-index:2;}
+.ie6 #index_timeline ul li .share_to,.ie6 #index_promotion{position:relative}
+.ie hr.d{margin:5px 0}
+.ie #index_timeline ul li .bubble_album p{margin:20px 0 -10px 130px}
+.ie #index_timeline ul li .bubble_collect p{margin:20px 0 -10px 120px}
+.ie #index_timeline ul li .bubble_radio p{margin:14px 0 -5px 10px}
+.ie #index_timeline ul li .bubble .bubble_media{margin:22px 0 0 8px}
+.ie6 #head_wrap{width:auto!important;overflow:hidden}
+.ie #search_query,.ie8 #search_query{margin:4px 0 0 6px}
+.ie .unfold,.ie8 .unfold{border-right:1px solid #999!important;border-bottom:1px solid #999!important;right:10px!important}
+.ie .unfold{height:185px!important}
+.ie6 #index_register h2{margin:0 0 5px}
+.ie6 #index_register span.invalid{right:243px}
+.ie6 #index_timeline ul li .share_to i{bottom:46px}
+.ie #copyright strong{background-image:url(http://img.xiami.com/res/v3/img/xiami_motto.png);padding:0}
+.ie6 #index_register span.valid{right:3px}
+.ie #index_register .txt_input{line-height:1.25}
+.ie #wrapper{background-image:url(http://img.xiami.com/res/v3/img/bg_x.jpg)}
+.ie ul#top_member a#top_login{background-image:url(http://img.xiami.com/res/v3/img/login_btns.png)}
+.ie #search{background-image:url(http://img.xiami.com/res/v3/img/search.png)}
+.ie .section .sec_top_dark{background-image:url(http://img.xiami.com/res/v3/img/sec_top_dark.png)}
+.ie .section .sec_bot_dark{background-image:url(http://img.xiami.com/res/v3/img/sec_bot_dark.png)}
+.ie .section .sec_top_978{background-image:url(http://img.xiami.com/res/v3/img/sec_top_978.png)}
+.ie .section .sec_bot_978{background-image:url(http://img.xiami.com/res/v3/img/sec_bot_978.png)}
+.ie .section .sec_bot_978s{background-image:url(http://img.xiami.com/res/v3/img/sec_bot_978_s.png)}
+.ie .section .sec_top_840{background-image:url(http://img.xiami.com/res/v3/img/sec_top_840.png)}
+.ie .section .sec_bot_840{background-image:url(http://img.xiami.com/res/v3/img/sec_bot_840.png)}
+.ie #index_register h2{background-image:url(http://img.xiami.com/res/v3/img/reg_slogan.png)}
+.ie #index_register span.invalid{background-image:url(http://img.xiami.com/res/v3/img/error.png)}
+.ie #index_register span.invalid b{background-image:url(http://img.xiami.com/res/v3/img/invalid_arrow.gif)}
+.ie #index_register span.valid{background-image:url(http://img.xiami.com/res/v3/img/valid.gif)}
+.ie #index_timeline ul li .bubble_album,.ie #index_timeline ul li .bubble_collect{background-image:url(http://img.xiami.com/res/v3/img/bubble.png)}
+.ie #index_timeline ul li.active .bubble_album,.ie #index_timeline ul li.active .bubble_collect{background-image:url(http://img.xiami.com/res/v3/img/bubble_active.png)}
+.ie #index_timeline ul li .bubble_album .bubble_play,.ie #index_timeline ul li .bubble_collect .bubble_play{background-image:url(http://img.xiami.com/res/v3/img/album_play.png)}
+.ie #index_timeline ul li .bubble_song .bubble_play{background-image:url(http://img.xiami.com/res/v3/img/song_play.png)}
+.ie #index_timeline ul li.active .bubble_song .bubble_play{background-image:url(http://img.xiami.com/res/v3/img/song_play_active.png)}
+.ie #index_timeline ul li.active .bubble_album .bubble_play,.ie #index_timeline ul li.active .bubble_collect .bubble_play{background-image:url(http://img.xiami.com/res/v3/img/album_play_active.png)}
+.ie #index_timeline ul li .bubble_radio,.ie #index_timeline ul li .bubble_song{background-image:url(http://img.xiami.com/res/v3/img/bubble_radio.png)}
+.ie #index_timeline ul li.active .bubble_radio,.ie #index_timeline ul li.active .bubble_song{background-image:url(http://img.xiami.com/res/v3/img/bubble_radio_active.png)}
+.ie #index_timeline ul li .bubble_radio .bubble_play{background-image:url(http://img.xiami.com/res/v3/img/radio_play.png)}
+.ie #index_timeline ul li.active .bubble_radio .bubble_play{background-image:url(http://img.xiami.com/res/v3/img/radio_play_active.png)}
+.ie #index_timeline ul li .share_to b{background-image:url(http://img.xiami.com/res/v3/img/share_to.gif)}
+.ie i.rss_feed{background-image:url(http://img.xiami.com/res/v3/img/rss_feed.png)}
+.ie #foot_content dd sup.hot{background-image:url(http://img.xiami.com/res/v3/img/sup_hot.gif)}
+.ie ul.album_185 li .album_cover .play{background-image:url(http://st.xiami.com/res/v3/img/play_185.png)}
+.ie6 #index_timeline ul li .bubble_album a.album_cover,.ie6 #index_timeline ul li .bubble_collect a.album_cover{background-image:url(http://img.xiami.com/res/img/default/cd100_ie.gif)}
+.ie #search_btn {background-image:url(http://img.xiami.com/res/v3/img/search_normal.png);}
+.ie form .typing {background-image:url(http://img.xiami.com/res/v3/img/typing.png) !important;}
+.ie form .loading {background-image:url(http://img.xiami.com/res/v3/img/search_loading.gif) !important;}
+.ie .reg_side i.icon, .ie #content i.icon {margin:-2px 5px 0 0;}

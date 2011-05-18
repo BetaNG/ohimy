@@ -1,0 +1,26 @@
+<div class="pub_pics_s2">
+	<div class="pis2_img fl r5">
+		<img class="r5" src="<%= @attachment.attachment.url(:small) %>">
+	</div>
+	<div class="pis2_detail">
+		<textarea id="pub_content3" class="pis2_txt r5" value="给照片加上介绍吧！"></textarea>
+		<input type="hidden" id="pub_pic_ids" value="<%= @attachment[:_id] %>">
+		<div class="mt10">
+			<div class="fl">
+				<input type="button" id="pub_submit3" value="发表" class="pis2_btn r5"/>
+				<a href="javascript:;" id="pub_cancel3" class="pis2_cancel">取消</a>
+			</div>
+			<div class="pub_out pis2_out fr">
+                <a target="_blank" href="/settings/bind">同步设置</a>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="pub_pics_s2_goods rb5">
+	<ul>
+		<li class="pps2g_add">
+			如果照片中有网购的商品，您可以为它添加购买链接。
+			<a class="pps2g_add_btn r5 mt10" href="javascript:;">添加链接</a>
+		</li>
+	</ul>
+</div>

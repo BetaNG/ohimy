@@ -1,0 +1,231 @@
+/* index - logged in - iefix stylesheet for Xiami v3 [raw] @ 2010-12-21 by dengsa */
+/* corner */
+
+.ie #wrapper i.t_b,
+.ie #wrapper i.b_b,
+.ie8 #wrapper i.t_b,
+.ie8 #wrapper i.b_b{display:block;width:978px;background-image:url("http://img.xiami.com/res/v3/img/w_corner.png");font-size:0;}
+.ie #wrapper .t_b, .ie8 #wrapper .t_b{height:5px;}
+.ie #wrapper .b_b, .ie8 #wrapper .b_b{clear:both;height:6px;background-position:0 -5px;}
+
+.ie #w_content .corner i.t_b,
+.ie #w_content .corner i.b_b,
+.ie8 #w_content .corner i.t_b,
+.ie8 #w_content .corner i.b_b{width:698px;background-image:url("http://img.xiami.com/res/v3/img/wc_corner.png");}
+
+.ie #w_content, .ie8 #w_content{padding:5px 10px 4px;}
+
+.ie #ws_push.corner, .ie8 #ws_push.corner{position:relative;border-bottom:1px solid #C3C3C6;}
+.ie #ws_push.corner i, .ie8 #ws_push.corner i{position:absolute;display:block;width:5px;height:5px;background-image:url("http://img.xiami.com/res/v3/img/wsp_corner.png");font-size:0;}
+.ie #ws_push .t_l_c, .ie8 #ws_push .t_l_c{left:0;top:0;background-position:0 0;}
+.ie #ws_push .t_r_c, .ie8 #ws_push .t_r_c{right:0;_right:-1px;top:0;background-position:-5px 0;}
+.ie #ws_push .b_l_c, .ie8 #ws_push .b_l_c{left:0;bottom:-1px;background-position:0 -5px;}
+.ie #ws_push .b_r_c, .ie8 #ws_push .b_r_c{right:0;_right:-1px;bottom:-1px;background-position:-5px -5px;}
+
+.ie .blue #wrapper, .ie8 .blue #wrapper{zoom:1;background:#ECF2F3 url("http://img.xiami.com/res/v3/img/w_content_bg.jpg") repeat-y 719px 0;}
+
+.ie6 #n_header {
+  background:url("http://img.xiami.com/res/img/default/n_head_ie.gif") repeat-x;
+  height:100px;
+  position:relative;
+  z-index:3;
+}
+.ie6 #page {
+  background:url("http://img.xiami.com/res/img/default/mbg_ie.jpg") top repeat-x #fff;
+}
+.ie6 #page.blue {
+  background:url("http://img.xiami.com/res/v3/img/g_mbg_ie.jpg") repeat-x scroll 0 0 #E0E6E7;
+}
+
+.ie .all_page a.p_redirect{ padding:4px 5px 3px 10px;}
+.ie .all_page a.p_redirect_l{ padding:4px 10px 3px 5px;}
+
+.ie #search_box {
+  display:inline;
+}
+.ie #ws_push,
+.ie .artists,
+.ie .albums,
+.ie .artist_block,
+.ie .album_block,
+.ie .user p,
+.ie .user ol,
+.ie .user ol a,
+.ie #wch_bottom,
+.ie #wcs_timeline{
+  zoom:1;
+}
+
+.ie #ws_push li {
+  vertical-align: middle;
+}
+
+.ie #ws_push b {
+ margin: 5px 6px 0 3px;
+}
+
+.ie #ws_push s {
+  margin-top:-22px;
+}
+.ie #wch_bottom .more b {
+  background-position:-7px -20px;
+}
+.ie #wst_bottom .more b,
+.ie #wss_bottom .more b {
+  background-position:-7px -18px;
+  _background-position:-7px -16px;
+}
+.ie #ws_star span {
+  margin:8px 0 0 60px;
+}
+.ie .artists,
+.ie .albums {
+  padding-bottom:10px;
+}
+.ie6 .artist_block li b,
+.ie6 .album_block li b {
+  margin:5px 5px 5px 2px;
+}
+.ie .artist_block hr,
+.ie .album_block hr {
+  margin:0;
+}
+.ie .radio_list_list li {
+  width:19.9%;
+}
+.ie6 .user ol li {margin-left:2px;}
+.ie6 .common_sec li {
+  display:inline;
+}
+.ie6 #wcf_update img{display:none;}
+.ie6 #w_sidebar .user{zoom:1;}
+.ie6 #wc_share{zoom:1;}
+.ie6 .wcfa_notice{margin-top:11px;}
+.ie6 #wch_bottom .more{margin-top:11px;}
+.ie6 #wch_bottom .more b{background-position:-7px -15px;}
+
+.ie #search_query {
+  margin: 4px 0 0 6px;
+}
+
+.ie #wcs_timeline li .bubble_album p {
+	margin: 20px 0 -10px 130px;
+}
+
+.ie #wcs_timeline li .bubble_collect p {
+	margin: 20px 0 -10px 120px;
+}
+
+.ie #wcs_timeline li .bubble_radio p {
+	margin: 14px 0 -5px 10px;
+}
+
+.ie #wcs_timeline li .bubble .bubble_media {
+	margin: 22px 0 0 8px;
+}
+
+.ie6 .artist_block i,
+.ie6 .artist_block dt,
+.ie6 .artist_dofav b,
+.ie6 .artist_doshare b,
+.ie6 .artist_donot b,
+.ie6 .artist_dofav:hover b,
+.ie6 .artist_doshare:hover b,
+.ie6 .artist_donot:hover b,
+.ie6 .artist_block span a,
+.ie6 .artist_block span a:hover,
+.ie6 .ie6 .album_block i,
+.ie6 .album_block dt,
+.ie6 .album_dofav b,
+.ie6 .album_doshare b,
+.ie6 .album_donot b,
+.ie6 .album_dofav:hover b,
+.ie6 .album_doshare:hover b,
+.ie6 .album_donot:hover b,
+.ie6 .album_block span a,
+.ie6 .album_block span a:hover,
+.ie6 .wcfa_notice b,
+.ie6 #wcf_update b,
+.ie6 #wcf_update .blank b,
+.ie6 #wch_bottom .more b,
+.ie6 #wsa_bottom .more b,
+.ie6 #wst_bottom .more b,
+.ie6 #wss_bottom .more b {
+	background-image:url("http://img.xiami.com/res/v3/img/icon_sprite.gif")
+}
+
+.ie #search_box {
+  background-image:url("http://img.xiami.com/res/v3/img/search_box.png");
+}
+.ie #wcs_timeline li .share_to b {
+  background-image:url("http://img.xiami.com/res/v3/img/share_to_white.gif");
+}
+.ie #wcs_timeline li.active .share_to b {
+  background-image:url("http://img.xiami.com/res/v3/img/share_to_gray.png");
+}
+.ie #wcs_timeline li .bubble_album,
+.ie #wcs_timeline li .bubble_collect {
+  background-image:url("http://img.xiami.com/res/v3/img/bubble_white.png");
+}
+.ie #wcs_timeline li.active .bubble_album,
+.ie #wcs_timeline li.active .bubble_collect {
+  background-image:url("http://img.xiami.com/res/v3/img/bubble_white_hover.png");
+}
+.ie #wcs_timeline li .bubble_radio,
+.ie #wcs_timeline li .bubble_song {
+  background-image:url("http://img.xiami.com/res/v3/img/bubble_small_white.png");
+}
+.ie #wcs_timeline li.active .bubble_radio,
+.ie #wcs_timeline li.active .bubble_song {
+  background-image:url("http://img.xiami.com/res/v3/img/bubble_small_white_hover.png");
+}
+.ie #wcs_timeline li .bubble_album .bubble_play,
+.ie #wcs_timeline li .bubble_collect .bubble_play {
+	background-image: url("http://img.xiami.com/res/v3/img/album_play.png");
+}
+
+.ie #wcs_timeline li .bubble_song .bubble_play {
+  background-image: url("http://img.xiami.com/res/v3/img/song_play.png");
+}
+
+.ie #wcs_timeline li.active .bubble_song .bubble_play {
+  background-image: url("http://img.xiami.com/res/v3/img/song_play_active.png");
+}
+
+.ie #wcs_timeline li.active .bubble_album .bubble_play,
+.ie #wcs_timeline li.active .bubble_collect .bubble_play {
+	background-image: url("http://img.xiami.com/res/v3/img/album_play_active.png");
+}
+
+.ie #wcs_timeline li .bubble_radio .bubble_play {
+	background-image: url("http://img.xiami.com/res/v3/img/radio_play.png");
+}
+
+.ie #wcs_timeline li.active .bubble_radio .bubble_play {
+	background-image: url("http://img.xiami.com/res/v3/img/radio_play_active.png");
+}
+
+.ie #search_btn {
+  background-image:url("http://img.xiami.com/res/v3/img/search_normal.png");
+}
+
+.ie form .typing {
+  background-image:url("http://img.xiami.com/res/v3/img/typing.png") !important;
+}
+
+.ie form .loading {
+ background-image:url("http://img.xiami.com/res/v3/img/search_loading.gif") !important;
+}
+
+.ie #copyright strong{background-image:url("http://img.xiami.com/res/v3/img/xiami_motto.png");padding:0}
+.ie6 #wcs_timeline li .bubble_album a.album_cover{padding-bottom:10px;background:url("http://img.xiami.com/res/v3/img/cd100.jpg") no-repeat 0 0;}
+.ie6 #wcs_timeline li.active .bubble_album a.album_cover{background:url("http://img.xiami.com/res/v3/img/cd100.jpg") no-repeat 0 -121px;}
+.ie6 #feedback_anchor{background-image:url("http://img.xiami.com/res/v3/img/feedback_v3.png");}
+
+.ie #w_content .tab_list, .ie8 #w_content .tab_list{top:17px;}
+
+.ie #wcf_update, .ie8 #wcf_update{top:43px;}
+.ie6 #wc_notice b{right:20px;}
+.ie #wcn_content, .ie8 #wcn_content{height:25px;line-height:25px;}
+
+.ie #wsc_tip, .ie8 #wsc_tip{line-height:16px;border-right:1px solid #BFC3C4;border-bottom:1px solid #BFC3C4;}

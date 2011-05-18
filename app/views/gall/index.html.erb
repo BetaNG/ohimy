@@ -1,0 +1,62 @@
+<div id="page" class="blue">
+
+	<div id="wrapper" class="corner clearfix">
+		<!--[if IE]><i class="t_b"></i><![endif]-->
+		<div id="w_content">
+			<div id="wc_notice" class="corner">
+				<!--[if IE]><i class="t_b"></i><![endif]-->
+				<div id="wcn_content">
+				</div>
+				<b></b>
+				<!--[if IE]><i class="b_b"></i><![endif]-->
+			</div>
+			<%= render "/shared/publish" %>
+
+			<div id="wc_share" class="corner mgt20">
+				<!--[if IE]><i class="t_b"></i><![endif]-->
+				<h2 class="text">好东西分享</h2>
+				<ul class="t_l">
+					<% @twitters.each do |twitter| %>
+					<%= render 'twitter', :collection => @twitter = twitter %>
+					<% end %>
+				</ul>
+				<p>
+					<a href="javascript:;" class="bot_more" onclick="_gaq.push(['_trackEvent', 'Tabs', 'ShareMusic', '更多']);">更多分享</a>
+				</p>
+				<a href="#n_header" id="top_anchor" title="回到顶部">回到顶部</a>
+			</div>
+		</div>
+		<!-- 右侧边栏 -->
+		<div id="w_sidebar">
+			<div id="idx_star">
+				<h3>
+				<b></b>虾星星
+				<em>SuperStar</em>
+				</h3>
+				<a href="/u/141825">
+				<img src="http://img.xiami.com/images/avatar/25/141825/1418251288865702_1.jpg">
+				</a>
+				<a href="/u/141825">晏水</a>
+				<em>(鄂州) / 女</em>
+				<span>
+					<a href="/space/collect/u/141825">制作14张精选集</a>
+				</span>
+				<p>
+					她叫晏水，她一再说她是一个纠结的倾向完美主义者。这个称谓很容易让虾米人想起笨鸟君，也许笨鸟和晏水就是江湖中肯定会有的那种神仙眷侣，共同执着而刻苦地修炼秘籍宝典，慢慢琢磨出了自己的盖世神功。她扛起了虾米一切为了高品质旧碟换新小组大石，她上传大家想要又很稀缺的专辑，她在和音乐恋爱。她说：“音乐是时间与生活的坐标。音乐告诉我希望、梦想与坚持，给我痛哭之后继续向前的力量。”　让我们一起来围观90后水瓶座女生——晏水
+				</p>
+			</div>
+			<!--<div id="ws_ad"> <a href="#"><img src="/res/v3/img/ad.jpg" /></a> </div>-->
+			<div id="ws_mobile">
+				<h3>虾米音乐无处不在</h3>
+				<a title="虾米移动版，好音乐无处不在" href="/software/iphone">
+				<img src="http://img.xiami.com/res/v3/img/mobile.jpg">
+				</a>
+				<a class="mgt10" title="虾米电台 桌面版" href="/software/xiamiair">
+				<img src="http://img.xiami.com/res/img/default/xiamiair_ad_trans.png">
+				</a>
+			</div>
+		</div>
+		<!--[if IE]><i class="b_b"></i><![endif]-->
+	</div>
+</div>
+<%= render "/shared/welcome" %>

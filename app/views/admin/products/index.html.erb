@@ -1,0 +1,50 @@
+<div class="mainarea">
+  <div class="maininner">
+
+    <div class="tabs_header">
+      <ul class="tabs">
+        <li class="active"><a href="/admin/products"><span>商品缓存</span></a></li>
+      </ul>
+    </div>
+
+    <div class="bdrcontent">
+        <table cellspacing="2" cellpadding="2" class="listtable">
+          <tbody><tr class="line">
+              <th></th>
+              <th></th>
+              <th></th>
+              <th></th>
+            </tr>
+            <% @products.each do |product| %>
+              <tr>
+				<td>
+                  <img src="<%= product[:pic_url] %>" width="100" height="100"/>
+                </td>
+                <td>
+                  <%= product[:title] %>
+                </td>
+                <td>
+                  <%= product[:price] %>
+                </td>
+              </tr>
+            <% end %>
+          </tbody></table>
+      </form></div>
+
+    <div class="footactions">
+      <input type="checkbox" id="chkall" name="chkall" onclick="checkAll(this.form, 'uids')">全选 &nbsp;&nbsp;
+      <input type="radio" name="optype" value="1"> 通过实名
+      <input type="radio" name="optype" value="2"> 取消实名
+      <input type="radio" name="optype" value="3"> 清空实名
+
+      <input type="radio" name="optype" value="4"> 发送邮件
+      <input type="radio" name="optype" value="5"> 打招呼
+      <input type="radio" name="optype" value="7"> 赠送道具
+      <input type="radio" name="optype" value="6"> 清理CSS
+
+      <input type="submit" name="listsubmit" value="提交" class="submit">
+      
+    </div>
+
+  </div>
+</div>

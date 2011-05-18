@@ -1,0 +1,69 @@
+<div id="body_wrap" class="unlogin member_page">
+  <div id="content" class="clearfix">
+    <div class="section">
+      <span class="sec_top_dark"></span>
+      <div class="sec_content clearfix">          
+		<h2 class="text">注册虾米会员 <span class="direct_login text f14">已经有虾米帐号? <%= link_to '请直接登录',  new_user_session_path %></span></h2>
+        <div class="unlogin_form fl">
+          <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |form| %>
+  			<%= devise_error_messages! %>
+            <p>
+              <%= form.label :name, '会员名：',:class =>'f_label' %>
+              <%= form.text_field :name, :class=>"txt_input r3px", :maxlength=>"12" %>
+              <span class="hint" id="nick_info">支持中文，最长8个字</span>
+			</p>
+			<p>
+              <%= form.label :email, '您的 Email 地址：',:class =>'f_label' %>
+              <%= form.text_field :email, :class=>"noime txt_input r3px" %>
+              <span class="hint" id="email_info">请填写常用邮箱，取回密码时用</span>
+            </p>
+			<p>
+              <%= form.label :sex, '性别：',:class =>'f_label' %>
+              <%= form.select :sex, [nil,'男','女','不告诉你'] %>
+            </p>
+            <p>
+              <%= form.label :birthday, '生日：',:class =>'f_label' %>
+              <%= form.date_select :birthday, {:start_year => 1970, :use_month_numbers => true } %>
+            </p>
+            <p>
+              <%= form.label :password, "设置密码：", :class=>"f_label"%>
+              <%= form.password_field :password, :class=>"txt_input r3px", :maxlength=>"20" %>
+              <span class="hint" id="password_info">6-16个字符</span>
+            </p>
+            <p>
+              <%= form.label :password_confirmation, "重复密码：", :class=>"f_label"%>
+              <%= form.password_field :password_confirmation, :class=>"txt_input r3px", :maxlength=>"20" %>
+            </p>
+            <p id="validate_code" style="display:none">
+              <label  class="f_label" for="validate">验证码：</label>
+              <input type="text"  id="validate" class="f_txt2" maxlength="4" name="validate" value=""  style="width:50px;" />
+              
+              <span class="hint">输入上图中的字符</span> </p>
+            <p class="acts">
+              <%= form.submit '注 册', :class=>"text blue_btn blue_btn2 r3px f14"%>
+              <span id="submiting"></span> </p>
+            <p class="acts">
+              <label class="f_check" for="agreement" >
+                <input  type="checkbox" class=""  id="agreement" name="agreement" value="" checked="checked" onblur="checkagree();"/>
+                我已阅读并接受《<a href="#" title="《使用协议》" target="_blank">使用协议</a>》</label>
+              <span class="hint warning" id="agreement_info"></span> </p>
+          <% end %>
+        </div>
+
+        <div class="unlogin_side fr">
+          <h3>通过合作网站直接登录虾米</h3>
+          <ul class="reg_with vam">
+            <li><a href="javascript:;" onclick="renrenLogin();return false;"><i class="icon renren"></i><span>人人网</span></a></li>
+            <li><a href="javascript:;" onclick="sinaLogin();return false;"><i class="icon sina"></i><span>新浪微博</span></a></li>
+            <li><a href="javascript:;" onclick="sdoLogin();return false;"><i class="icon sdo"></i><span>盛大通行证</span></a></li>
+            <li><a href="javascript:;" onclick="neteaseLogin();return false;"><i class="icon dream"></i><span>梦幻人生</span></a><div id="oa-root"></div></li>
+            <li><a href="/alipay/setting"><i class="icon alipay"></i><span>支付宝</span></a></li>
+          </ul>
+          <cite>或者</cite>
+        </div>
+
+      </div>
+      <span class="sec_bot_dark"></span>
+    </div>
+  </div> <!-- #content -->
+</div> <!-- #body_wrap -->

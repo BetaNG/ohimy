@@ -1,0 +1,33 @@
+<div class="goods_box_r">
+	<img src="<%= @item[:pic_url] %>_100x100.jpg">
+	<p>
+		<%= @item[:title]%>
+		<span><%= @item[:price]%></span>
+	</p>
+	<input type="button" class="g_a r3" value="确　定(3)">
+</div>
+<div id="pub_img_box" style="display: none">
+	<li iid="<%= @item[:num_iid]%>" class="g_f">
+		<div class="r5 g">
+			<a href="javascript:;" class="del"></a>
+			<img src="<%= @item[:pic_url]%>_100x100.jpg" class="i">
+			<%= image_tag "goods_tag.png", :class => "tag" %>
+		</div>
+	</li>
+</div>
+<script>
+	var start = 2
+	$(".g_a").click( function() {
+		pub_val()
+	})
+	var touki = setInterval( function() {
+		if(start < 0){pub_val();clearInterval(touki)}
+		$(".g_a").val("确　定("+start+")")
+		start = start - 1
+	},1000);
+	var pub_val = function() {
+		$(".pub_img").append($("#pub_img_box").html())
+		$(".pub_img").show()
+		$(".light_box").remove()
+	}
+</script>

@@ -1,0 +1,136 @@
+<li id="<%= @twitter[:_id] %>" class="t_f" uid="<%= @twitter.user._id %>">
+	<div class="hd">
+		<a href="/u/<%= @twitter.user._id %>"><%= image_tag avatar(@twitter.user,:m), :alt=>@twitter.user.name, :class=>"avt icard r5", :height=>48, :width=>48 %></a>
+	</div>
+	<div class="tk">
+		<div class="inf">
+			<a href="/u/<%= @twitter.user[:_id] %>" alt="<%= @twitter.user.name %>" class="icard n gc"><%= @twitter.user.name %></a>
+			<a href="/settings/buyerverifier" class="v" target="_blank"><%= image_tag "buyer_s.png", :alt=>"Buyer_s", :class=>"v", :title=>"买家认证" %></a>
+			<span>
+				<a class="t fr" href="/note/11iz4m" target="_blank"><%= status_time_ago_in_words @twitter[:created_at] %></a>
+			</span>
+		</div>
+		<p class="sms">
+			<%= @twitter[:content] %>
+		</p>
+		<% if @twitter.twitter %>
+		<% @forward = @twitter.twitter %>
+		<div class="q r5" qtid="117a20">
+			<%= image_tag "quote_arrow.png", :alt=>"Quote_arrow", :class=>"q_a" %>
+			<p class="sms">
+				<a class="icard n" href="/u/<%= @forward.user._id %>">@<%= @forward.user.name %></a>：<%= @forward[:content] %>
+				<a href="/note/117a20">原文转发<%= "(#{@forward[:ftimes]})" %></a>
+				<a href="/note/117a20">原文评论(4)</a>
+			</p>
+			<div class="pic">
+				<% @forward.twitter_files.each do |ftf| %>
+				<% if ftf.product %>
+				<div class="r3 g">
+					<img src="<%= ftf.product.pic_url %>_100x100.jpg" alt="<%= ftf.product.title %>">
+					<%= image_tag "goods_tag.png", :alt=>"Goods_tag", :class=>"tag" %>
+				</div>
+				<% end %>
+				<% if ftf.attachment %>
+				<div class="r3">
+					<%= image_tag ftf.attachment.attachment.url(:small), :class=>"fl" if ftf.attachment %>
+				</div>
+				<% end %>
+				<% end %>
+				<br class="clear">
+			</div>
+			<ul class="pic_b">
+				<% @forward.twitter_files.each do |ftf| %>
+				<% if ftf.product %>
+				<li gid="<%= ftf[:_id] %>" class="pic_b_f r5">
+					<div class="pic_b_hd">
+						<a class="mg_slink ofh" href="http://mogujie.cn/tgo/?to=http%3A%2F%2Fitem.taobao.com%2Fitem.htm%3Fid%3D9039514196" c="158vq" s="t_11iz4m" target="_blank" ref="nofollow"><%= ftf.product.title %></a>
+						<div class="g_p">
+							<span>￥<%= ftf.product.price %></span>
+						</div>
+					</div>
+					<div class="pic_b_bd">
+						<img src="<%= ftf.product.pic_url %>" style="width:468px;height:447px;" alt="<%= ftf.product.title %>">
+					</div>
+				</li>
+				<% end %>
+				<% if ftf.attachment %>
+				<li gid="<%= ftf[:_id] %>" class="pic_b_f r5">
+					<div class="pic_b_hd">
+						<a href="<%= ftf.attachment.attachment.url %>" target="_blank" ref="nofollow">查看原图</a>
+					</div>
+					<div class="pic_b_bd">
+						<%= image_tag ftf.attachment.attachment.url(:big) %>
+					</div>
+				</li>
+				<% end %>
+				<% end %>
+			</ul>
+		</div>
+		<% end %>
+		<div class="pic">
+			<% @twitter.twitter_files.each do |tf| %>
+			<% if tf.product %>
+			<div class="r3 g fl">
+				<img class="fl" src="<%= tf.product.pic_url %>_160x160.jpg" alt="<%= tf.product.title %>">
+				<%= image_tag "goods_tag.png", :alt=>"Goods_tag", :class=>"tag" %>
+			</div>
+			<% end %>
+			<% if tf.attachment %>
+			<div class="r3 fl">
+				<%= image_tag tf.attachment.attachment.url(:medium) if tf.attachment %>
+			</div>
+			<% end %>
+			<% end %>
+		</div>
+		<ul class="pic_b">
+			<% @twitter.twitter_files.each do |tf| %>
+			<% if tf.product %>
+			<li gid="<%= tf[:_id] %>" class="pic_b_f r5">
+				<div class="pic_b_hd">
+					<a class="mg_slink ofh" href="http://mogujie.cn/tgo/?to=http%3A%2F%2Fitem.taobao.com%2Fitem.htm%3Fid%3D9039514196" c="158vq" s="t_11iz4m" target="_blank" ref="nofollow"><%= tf.product.title %></a>
+					<div class="g_p">
+						<span>￥<%= tf.product.price %></span>
+					</div>
+				</div>
+				<div class="pic_b_bd">
+					<img src="<%= tf.product.pic_url %>" style="width:468px;height:447px;" alt="<%= tf.product.title %>">
+				</div>
+			</li>
+			<% end %>
+			<% if tf.attachment %>
+			<li gid="<%= tf[:_id] %>" class="pic_b_f r5">
+				<div class="pic_b_hd">
+					<a href="<%= tf.attachment.attachment.url %>" target="_blank" ref="nofollow">查看原图</a>
+				</div>
+				<div class="pic_b_bd">
+					<%= image_tag tf.attachment.attachment.url(:big) %>
+				</div>
+			</li>
+			<% end %>
+			<% end %>
+		</ul>
+		<div class="tl">
+			<a class="fw" href="javascript:;" w="<%= @twitter[:_id] %>">转发<%= "(#{@twitter[:ftimes]})" %></a>
+			<a class="cmt" href="javascript:;" w="<%= @twitter[:_id] %>">评论</a>
+		</div>
+		<div class="cf_b" t="cmt" style="display: none">
+			<img src="../images/commnet_arrow.png" class="cf_a">
+			<div class="cf_pub_b r5">
+				<a href="javascript:;">
+				<img src="../images/add_face_c.png" w="f" class="add_face fl">
+				</a>
+				<textarea class="pub_txt fl rl3" style="height: 21px; ">
+				</textarea>
+				<input type="button" value="评论" class="pub_btn fl rr3">
+				<div class="cf_opt">
+					<input type="checkbox" id="c_cb_11qcq0" class="c_cb">
+					<label for="cb_11qcq0">
+						转发给我的粉丝
+					</label>
+				</div>
+			</div>
+		</div>
+		<ul class="t_m_l_h">
+		</ul>
+	</div>
+</li>

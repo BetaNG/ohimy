@@ -1,0 +1,50 @@
+<p class="fw_root">
+	//<%= @forward[:content] %>
+</p>
+<div class="fw_pub_area">
+	<div class="fwpa_tool">
+		<a href="javascript:;">
+		<img class="fl add_face" style="margin-top:5px" w="fw" src="../images/add_face_c.png">
+		</a>
+		<span class="fw_count">
+			还可以输入
+			<b style="color: rgb(102, 153, 0); ">140</b>个汉字
+		</span>
+	</div>
+	<%= form_for :twitter, :url=>"/gall/forward",:html=>{:id=>"forward_form"} do |form| %>
+	<textarea class="fw_content" name="content"><%= @content %></textarea>
+	<input type="hidden" name="id" value="<%= @twitter[:_id] %>">
+	<input type="hidden" name="referenced" value="<%= @forward[:_id] %>">
+	<div class="fw_submit_box">
+		<input type="checkbox" checked="" id="fw_tweet" rtid="<%= @twitter.user._id %>">
+		<label for="fw_tweet">
+			同时评论给 <%= @twitter.user.name %>
+		</label>
+		<br>
+		<div class="sub_div">
+			<a href="javascript:;" class="fw_submit"><%= image_tag "forword_btn.png" %></a>
+			<a class="fw_cancel" href="javascript:;">取消</a>
+		</div>
+	</div>
+	<% end %>
+</div>
+<script>
+	// 字数统计
+	var $f_tweet = $('.fw_content');
+	var $f_count = $('.fw_count b');
+	$f_tweet.live("keyup", function(e) {
+		var num = 140 - $f_tweet.val().length;
+		if (num < 0)
+			$('.fw_count')
+			.html('<span style="color:red">已经超出' + Math.abs(num).toString()
+			+ '个汉字</span>');
+		else
+			$f_count.html(num.toString());
+	}).trigger('keyup')
+	$(".fw_submit").click(function(){
+		$("#forward_form").ajaxSubmit(function(data){
+			$("#wc_share .t_l").prepend(data)
+			$(".light_box").remove()
+		})	
+	})
+</script>

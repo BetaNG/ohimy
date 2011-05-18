@@ -1,0 +1,46 @@
+<div id="body_wrap" class="unlogin member_page">
+  <div id="content" class="clearfix">
+    <div class="section">
+      <span class="sec_top_dark"></span>
+      <div class="sec_content clearfix">          <h2 class="text">登录虾米</h2>
+        <div class="unlogin_form fl">
+          <%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |form| %>
+            <p>
+              <%= form.label :name, '用户名：',:class =>'f_label' %>
+              <%= form.text_field :name, :class=>"noime txt_input r3px" %>
+            </p>
+            <p>
+              <%= form.label :password, "密码：", :class=>"f_label"%>
+              <%= form.password_field :password, :class=>"txt_input r3px", :maxlength=>"20" %>
+            </p>
+            <p class="acts">
+              <%= form.check_box :remember_me %>
+              下次自动登录
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              <%= link_to '忘记密码了?', new_user_password_path %>
+            </p>
+            <p class="acts">
+              <%= form.submit '登 录', :class=>"text blue_btn blue_btn2 r3px f14"%>
+              <span id="submiting"></span> </p>
+          <% end %>
+          <p class="hint">或者使用合作网站登录虾米</p>
+          <ul class="log_with vam clearfix">
+            <li><a href="javascript:;" onclick="renrenLogin();return false;"><i class="icon renren"></i><span>人人网</span></a></li>
+            <li><a href="javascript:;" onclick="sinaLogin();return false;"><i class="icon sina"></i><span>新浪微博</span></a></li>
+            <li><a href="javascript:;" onclick="sdoLogin();return false;"><i class="icon sdo"></i><span>盛大通行证</span></a></li>
+            <li><a href="javascript:;" onclick="neteaseLogin();return false;"><i class="icon dream"></i><span>梦幻人生</span></a><div id="oa-root"></div></li>
+            <li class="last"><a href="/alipay/setting"><i class="icon alipay"></i><span>支付宝</span></a></li>
+          </ul>
+
+        </div>
+
+        <div class="unlogin_side fr">
+          <h4 class="f14">还没有虾米的帐号? <%= link_to '免费注册', new_user_registration_path %> </h4>
+          <p><span class="mobile_access" href="#">手机访问虾米网<br /><a class="f12" href="http://m.xiami.com" target="_blank">http://m.xiami.com</a></span></p>
+        </div>
+
+      </div>
+      <span class="sec_bot_dark"></span>
+    </div>
+  </div> <!-- #content -->
+</div> <!-- #body_wrap -->

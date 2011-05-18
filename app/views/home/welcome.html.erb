@@ -1,0 +1,726 @@
+<div id="body_wrap" class="unlogin">
+	<div id="content" class="clearfix">
+		<div id="index_nowplay" class="section">
+			<span class="sec_top_dark"></span>
+			<div class="sec_content">
+				<h2 class="text">
+				<strong>
+				<i>115318</i>
+				</strong>
+				<small>
+					位大虾正通过他们各自的音乐库发现音乐
+				</small>
+				</h2>
+				<div id="index_hot_users" class="fl">
+					<object
+					classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000"
+					codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=9,0,28,0"
+					width="725" height="164">
+						<param name="movie"
+						value="http://img.xiami.com/res/v3/img/xiamiAvatarWall.swf">
+						<param name="wmode" value="opaque">
+						<param name="quality" value="high">
+						<param name="flashVars"
+						value="dataUrl=http://www.xiami.com/xml/avatar-wall&amp;youLink=http://www.xiami.com/member/register">
+						<embed src="http://www.xiami.com/res/v3/img/xiamiAvatarWall.swf"
+						menu="false" wmode="opaque" quality="high"
+						pluginspage="http://www.adobe.com/shockwave/download/download.cgi?P1_Prod_Version=ShockwaveFlash"
+						type="application/x-shockwave-flash" width="725" height="164"
+						flashvars="dataUrl=http://www.xiami.com/xml/avatar-wall&amp;youLink=http://www.xiami.com/member/register">
+					</object>
+				</div>
+				<div id="index_register" class="fold">
+					<h2 class="ti">这些好听的音乐库，就差你了</h2>
+					<%= form_for(:user, :url => user_registration_path) do |form| %>
+					<p class="textbox">
+						<%= form.text_field :email, {:title=>"输入常用Email，开启音乐库", :value=>"输入常用Email，开启音乐库", :class=>"noime txt_input r3px", :id=>"reg_email", :tabindex =>'5'} %>
+						<span class="valid hidden"></span>
+						<span class="invalid hidden">
+							该Email地址已被使用！
+							<br />
+							请
+							<a href="#">直接登陆</a> 或
+							<a href="#">找回密码</a>
+							<b></b>
+						</span>
+					</p>
+					<p class="textbox foldable">
+						<%= form.text_field :name, {:title=>"起个拉风的昵称 (1-12字符)", :value=>"起个拉风的昵称 (1-12字符)", :class=>"txt_input r3px", :id=>"reg_username", :maxlength=>"12", :tabindex=>"6"  } %>
+						<span class="valid hidden"></span>
+						<span class="invalid hidden">
+							请使用1-12个字符的昵称！
+							<b></b>
+						</span>
+					</p>
+					<p class="textbox foldable">
+						<%= form.password_field :password, {:tabindex=>"7", :title=>"密码", :class=>"txt_input r3px reg_psw", :id=>"reg_password", :maxlength=>"16" } %>
+						<span class="input_text">密码 (6-16字符)</span>
+						<span class="valid hidden"></span>
+						<span class="invalid hidden">
+							请使用6-16个字符密码！
+							<b></b>
+						</span>
+						<%= form.hidden_field :password_confirmation, :id=>"verifypass" %>
+					</p>
+					<p class="remember foldable">
+						<input type="submit" class="fr text blue_btn blue_btn4 r3px f13" tabindex="9" value="免费注册" id="reg_submit" name="submit" onFocus="this.blur();" />
+						<input type="checkbox" tabindex="8" name="agreement" id="accept_eula" checked />
+						<label class="minor" for="accept_eula">
+							接受
+							<a target="_blank" href="/agreement">使用协议</a>
+						</label>
+					</p>
+					<% end %>
+				</div>
+			</div>
+			<span class="sec_bot_dark"></span>
+		</div>
+		<!-- #index_nowplay .section -->
+		
+		<div id="index_features">
+			<ul>
+				<li>
+					<h2>海量高品质东东</h2>
+					<p>
+						Millions of CD-quality songs
+					</p>
+				</li>
+				<li>
+					<h2>发现喜爱的东东</h2>
+					<p>
+						Recommend &amp; Discover
+					</p>
+				</li>
+				<li>
+					<h2>与朋友们分享好东东</h2>
+					<p>
+						Share music with friends
+					</p>
+				</li>
+				<li>
+					<h2>随时随地，噢买淘客</h2>
+					<p>
+						Anywhere,anytime,anyway
+					</p>
+				</li>
+			</ul>
+		</div>
+		<div id="index_hotmusic" class="section mgt20">
+			<span
+			class="sec_top_978"></span>
+			<div class="sec_content">
+				<a class="top_more fr text"
+				href="http://www.xiami.com/music/newalbum">发现更多音乐</a>
+				<h2 class="text">
+				发现热门音乐
+				<small class="gray">
+					一周全球乐坛流行专辑
+				</small>
+				</h2>
+				<ul class="album_list album_185 clearfix">
+					<li>
+						<div class="album_cover">
+							<a title="钝悟 - 王筝"
+							href="http://www.xiami.com/album/421210">
+							<img
+							src="../others/1295501491_4.jpg" alt="">
+							</a>
+							<div class="album_overlay">
+								<a title="专辑试听" href="javascript:;"
+								class="play" onclick="playalbum(421210);">专辑试听</a>
+							</div>
+						</div>
+						<h3>
+						<a title="钝悟" href="http://www.xiami.com/album/421210">钝悟</a>
+						</h3>
+						<span class="gray">
+							<a title="王筝"
+							href="http://www.xiami.com/artist/2214">王筝</a>
+						</span>
+					</li>
+					<li>
+						<div class="album_cover">
+							<a title="ONE MORE - 轻松玩"
+							href="http://www.xiami.com/album/423473">
+							<img
+							src="../others/4234731297321939_4.jpg"
+							alt="">
+							</a>
+							<div class="album_overlay">
+								<a title="专辑试听" href="javascript:;"
+								class="play" onclick="playalbum(423473);">专辑试听</a>
+							</div>
+						</div>
+						<h3>
+						<a title="ONE MORE" href="http://www.xiami.com/album/423473">ONE
+						MORE</a>
+						</h3>
+						<span class="gray">
+							<a title="轻松玩"
+							href="http://www.xiami.com/artist/2975">轻松玩</a>
+						</span>
+					</li>
+					<li>
+						<div class="album_cover">
+							<a
+							title="Joey Yung Concert Number 6 - 容祖儿"
+							href="http://www.xiami.com/album/422964">
+							<img
+							src="../others/1296659327_4.jpg" alt="">
+							</a>
+							<div class="album_overlay">
+								<a title="专辑试听" href="javascript:;"
+								class="play" onclick="playalbum(422964);">专辑试听</a>
+							</div>
+						</div>
+						<h3>
+						<a title="Joey Yung Concert Number 6"
+						href="http://www.xiami.com/album/422964">Joey Yung Concert Number
+						6</a>
+						</h3>
+						<span class="gray">
+							<a title="容祖儿"
+							href="http://www.xiami.com/artist/2075">容祖儿</a>
+						</span>
+					</li>
+					<li>
+						<div class="album_cover">
+							<a title="现在开始我爱你 - 梁静茹"
+							href="http://www.xiami.com/album/422852">
+							<img
+							src="../others/4228521297226918_4.jpg"
+							alt="">
+							</a>
+							<div class="album_overlay">
+								<a title="专辑试听" href="javascript:;"
+								class="play" onclick="playalbum(422852);">专辑试听</a>
+							</div>
+						</div>
+						<h3>
+						<a title="现在开始我爱你" href="http://www.xiami.com/album/422852">现在开始我爱你</a>
+						</h3>
+						<span class="gray">
+							<a title="梁静茹"
+							href="http://www.xiami.com/artist/1836">梁静茹</a>
+						</span>
+					</li>
+					<li>
+						<div class="album_cover">
+							<a title="重译 - 陈洁仪"
+							href="http://www.xiami.com/album/421981">
+							<img
+							src="../others/4219811296023833_4.jpg"
+							alt="">
+							</a>
+							<div class="album_overlay">
+								<a title="专辑试听" href="javascript:;"
+								class="play" onclick="playalbum(421981);">专辑试听</a>
+							</div>
+						</div>
+						<h3>
+						<a title="重译" href="http://www.xiami.com/album/421981">重译</a>
+						</h3>
+						<span class="gray">
+							<a title="陈洁仪"
+							href="http://www.xiami.com/artist/1390">陈洁仪</a>
+						</span>
+					</li>
+				</ul>
+				<ul class="album_list album_185 clearfix sec">
+					<li>
+						<div class="album_cover">
+							<a
+							title="2011 GRAMMY Nominees - Various Artists"
+							href="http://www.xiami.com/album/422293">
+							<img
+							src="../others/4222931296097841_4.jpg"
+							alt="">
+							</a>
+							<div class="album_overlay">
+								<a title="专辑试听" href="javascript:;"
+								class="play" onclick="playalbum(422293);">专辑试听</a>
+							</div>
+						</div>
+						<h3>
+						<a title="2011 GRAMMY Nominees"
+						href="http://www.xiami.com/album/422293">2011 GRAMMY Nominees</a>
+						</h3>
+						<span class="gray">
+							<a title="Various Artists"
+							href="http://www.xiami.com/artist/23258">Various Artists</a>
+						</span>
+					</li>
+					<li>
+						<div class="album_cover">
+							<a title="告白 オリジナル・サウンドトラック - 日本原声带"
+							href="http://www.xiami.com/album/396663">
+							<img
+							src="../others/3966631282115124_4.jpg"
+							alt="">
+							</a>
+							<div class="album_overlay">
+								<a title="专辑试听" href="javascript:;"
+								class="play" onclick="playalbum(396663);">专辑试听</a>
+							</div>
+						</div>
+						<h3>
+						<a title="告白 オリジナル・サウンドトラック"
+						href="http://www.xiami.com/album/396663">告白 オリジナル・サウンドトラック</a>
+						</h3>
+						<span class="gray">
+							<a title="日本原声带"
+							href="http://www.xiami.com/artist/23257">日本原声带</a>
+						</span>
+					</li>
+					<li>
+						<div class="album_cover">
+							<a title="超时代 演唱会 - 周杰伦"
+							href="http://www.xiami.com/album/422597">
+							<img
+							src="../others/4225971296118423_4.jpg"
+							alt="">
+							</a>
+							<div class="album_overlay">
+								<a title="专辑试听" href="javascript:;"
+								class="play" onclick="playalbum(422597);">专辑试听</a>
+							</div>
+						</div>
+						<h3>
+						<a title="超时代 演唱会" href="http://www.xiami.com/album/422597">超时代
+						演唱会</a>
+						</h3>
+						<span class="gray">
+							<a title="周杰伦"
+							href="http://www.xiami.com/artist/1260">周杰伦</a>
+						</span>
+					</li>
+					<li>
+						<div class="album_cover">
+							<a
+							title="Simon Werner A Disparu (Original Enregistrement Sonore) - Sonic Youth"
+							href="http://www.xiami.com/album/421639">
+							<img
+							src="../others/1295837206_4.jpg" alt="">
+							</a>
+							<div class="album_overlay">
+								<a title="专辑试听" href="javascript:;"
+								class="play" onclick="playalbum(421639);">专辑试听</a>
+							</div>
+						</div>
+						<h3>
+						<a
+						title="Simon Werner A Disparu (Original Enregistrement Sonore)"
+						href="http://www.xiami.com/album/421639">Simon Werner A Disparu
+						(Original Enregistrement Sonore)</a>
+						</h3>
+						<span class="gray">
+							<a title="Sonic Youth"
+							href="http://www.xiami.com/artist/10605">Sonic Youth</a>
+						</span>
+					</li>
+					<li>
+						<div class="album_cover">
+							<a title="孤独的和弦 - 萧煌奇"
+							href="http://www.xiami.com/album/421208">
+							<img
+							src="../others/1295501324_4.jpg" alt="">
+							</a>
+							<div class="album_overlay">
+								<a title="专辑试听" href="javascript:;"
+								class="play" onclick="playalbum(421208);">专辑试听</a>
+							</div>
+						</div>
+						<h3>
+						<a title="孤独的和弦" href="http://www.xiami.com/album/421208">孤独的和弦</a>
+						</h3>
+						<span class="gray">
+							<a title="萧煌奇"
+							href="http://www.xiami.com/artist/997">萧煌奇</a>
+						</span>
+					</li>
+				</ul>
+			</div>
+			<span class="sec_bot_978"></span>
+		</div>
+		<!-- #index_hotmusic .section -->
+
+		<div id="index_timeline" class="fl mgt30">
+			<a
+			href="http://www.xiami.com/share/more" class="top_more fr text">更多音乐分享</a>
+			<h2 class="text">他们正在分享好音乐...</h2>
+			<ul>
+
+				<li class="timeline_item" id="share_li_4d5a9bcccb6da1116c000012">
+
+					<div class="share_content">
+						<a
+						href="http://www.xiami.com/u/2721643"
+						class="user_image fl personalDropDown" title="haZyben">
+						<img
+						width="50" height="50" alt=""
+						src="../others/27216431296834820_1.jpg">
+						</a>
+						<p>
+							<a href="http://www.xiami.com/u/2721643">haZyben</a> 收藏并分享专辑
+						</p>
+						<div class="bubble bubble_album">
+							<a title="专辑试听"
+							href="javascript:;"
+							onclick=""
+							class="bubble_play">专辑试听</a>
+							<a title="Put On - 陈柏宇"
+							href="http://www.xiami.com/album/406169" class="album_cover fl">
+							<img
+							width="100" height="100"
+							src="../others/4061691287035712_1.jpg"
+							alt="">
+							</a>
+							<p>
+								<a href="http://www.xiami.com/album/406169">Put On</a>
+							</p>
+							<p>
+								<span>
+									演唱者：
+									<a href="http://www.xiami.com/artist/7334">陈柏宇</a>
+								</span>
+							</p>
+						</div>
+						<p class="minor">
+							<a
+							href="http://www.xiami.com/share/detail/id/4d5a9bcccb6da1116c000012"
+							rel="1297783756">
+							<time datetime="21秒前">
+								21秒前
+							</time>
+							</a> 通过虾米网 分享 到 腾讯微博
+							-
+							<a
+							href="http://www.xiami.com/member/login?done=/share/detail/id/4d5a9bcccb6da1116c000012">回复(0)</a>
+						</p>
+					</div>
+					<!-- .share_content -->
+
+					<div class="share_to">
+						<b></b>
+						<i class="social qq"
+						title="通过虾米分享到腾讯微博"></i>
+					</div>
+					<!-- .share_to -->
+
+					<div class="share_comment hidden">
+						<ul>
+						</ul>
+					</div>
+				</li>
+				<li class="timeline_item" id="share_li_4d5a9bc2ca6da1e423000006">
+
+					<div class="share_content">
+						<a
+						href="http://www.xiami.com/u/1884886"
+						class="user_image fl personalDropDown" title="Cass">
+						<img
+						width="50" height="50" alt=""
+						src="../others/18848861295014521_1.jpg">
+						</a>
+						<p>
+							<a href="http://www.xiami.com/u/1884886">Cass</a> 收藏并分享艺人
+						</p>
+						<div class="bubble bubble_radio">
+							<a title="播放电台"
+							href="http://www.xiami.com/radio/play/type/5/oid/3137"
+							class="bubble_play">播放电台</a>
+							<p>
+								<a title="信乐团电台"
+								href="http://www.xiami.com/radio/play/type/5/oid/3137">信乐团 电台</a>
+							</p>
+							<p>
+								<span>
+									演唱者：
+									<a href="http://www.xiami.com/artist/3137">信乐团</a>
+								</span>
+							</p>
+						</div>
+						<p class="minor">
+							<a
+							href="http://www.xiami.com/share/detail/id/4d5a9bc2ca6da1e423000006"
+							rel="1297783746">
+							<time datetime="31秒前">
+								31秒前
+							</time>
+							</a> 通过虾米网 分享 到 豆瓣网
+							-
+							<a
+							href="http://www.xiami.com/member/login?done=/share/detail/id/4d5a9bc2ca6da1e423000006">回复(0)</a>
+						</p>
+					</div>
+					<!-- .share_content -->
+
+					<div class="share_to">
+						<b></b>
+						<i class="social douban"
+						title="通过虾米分享到豆瓣网"></i>
+					</div>
+					<!-- .share_to -->
+
+					<div class="share_comment hidden">
+						<ul>
+						</ul>
+					</div>
+				</li>
+				<li class="timeline_item" id="share_li_4d5a9bb9cc6da1a25800000f">
+
+					<div class="share_content">
+						<a
+						href="http://www.xiami.com/u/2721643"
+						class="user_image fl personalDropDown" title="haZyben">
+						<img
+						width="50" height="50" alt=""
+						src="../others/27216431296834820_1.jpg">
+						</a>
+						<p>
+							<a href="http://www.xiami.com/u/2721643">haZyben</a> 收藏并分享专辑
+						</p>
+						<div class="bubble bubble_album">
+							<a title="专辑试听"
+							href="javascript:;"
+							onclick=""
+							class="bubble_play">专辑试听</a>
+							<a title="Raw Jazz  - 陈奂仁"
+							href="http://www.xiami.com/album/323647" class="album_cover fl">
+							<img
+							width="100" height="100"
+							src="../others/3236471238490564_1.jpg"
+							alt="">
+							</a>
+							<p>
+								<a href="http://www.xiami.com/album/323647">Raw Jazz </a>
+							</p>
+							<p>
+								<span>
+									演唱者：
+									<a href="http://www.xiami.com/artist/59363">陈奂仁</a>
+								</span>
+							</p>
+						</div>
+						<p class="minor">
+							<a
+							href="http://www.xiami.com/share/detail/id/4d5a9bb9cc6da1a25800000f"
+							rel="1297783737">
+							<time datetime="40秒前">
+								40秒前
+							</time>
+							</a> 通过虾米网 分享 到 新浪微博
+							-
+							<a
+							href="http://www.xiami.com/member/login?done=/share/detail/id/4d5a9bb9cc6da1a25800000f">回复(0)</a>
+						</p>
+					</div>
+					<!-- .share_content -->
+
+					<div class="share_to">
+						<b></b>
+						<i class="social sina"
+						title="通过虾米分享到新浪微博"></i>
+					</div>
+					<!-- .share_to -->
+
+					<div class="share_comment hidden">
+						<ul>
+						</ul>
+					</div>
+				</li>
+				<li class="timeline_item" id="share_li_4d5a9bb9ca6da1982300002a">
+
+					<div class="share_content">
+						<a
+						href="http://www.xiami.com/u/2841590"
+						class="user_image fl personalDropDown" title="Chance Lai">
+						<img
+						width="50" height="50" alt=""
+						src="../others/usr50.gif">
+						</a>
+						<p>
+							<a href="http://www.xiami.com/u/2841590">Chance Lai</a> 分享歌曲
+						</p>
+						<div class="bubble bubble_song">
+							<a title="弹出播放"
+							href="javascript:;"
+							onclick=""
+							class="bubble_play">弹出播放</a>
+							<div class="bubble_media">
+								<!--<p><a href="/song/6953" data-songid="6953">十面埋伏</a>
+								<a href="/artist/135">陈奕迅</a></p>-->
+								<span>
+									<a
+									href="javascript:;" title="点击播放">
+									<strong>陈奕迅 - 十面埋伏</strong>
+									</a>
+								</span>
+								<textarea
+								style="display: none;">
+									&lt;object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=9,0,28,0" width="257" height="33"&gt;&lt;param name="movie" value="http://img.xiami.com/widget/2841590_6953_/singlePlayer.swf" /&gt;&lt;param name="wmode" value="transparent" /&gt;&lt;param name="quality" value="high" /&gt;&lt;embed src="http://img.xiami.com/widget/2841590_6953_/singlePlayer.swf" menu="false" wmode="transparent" quality="high" pluginspage="http://www.adobe.com/shockwave/download/download.cgi?P1_Prod_Version=ShockwaveFlash" type="application/x-shockwave-flash" width="257" height="33"&gt;&lt;/embed&gt;&lt;/object&gt;
+								</textarea>
+							</div>
+						</div>
+						<p class="minor">
+							<a
+							href="http://www.xiami.com/share/detail/id/4d5a9bb9ca6da1982300002a"
+							rel="1297783737">
+							<time datetime="40秒前">
+								40秒前
+							</time>
+							</a> 通过虾米网 分享 到 新浪微博
+							-
+							<a
+							href="http://www.xiami.com/member/login?done=/share/detail/id/4d5a9bb9ca6da1982300002a">回复(0)</a>
+						</p>
+					</div>
+					<!-- .share_content -->
+
+					<div class="share_to">
+						<b></b>
+						<i class="social sina"
+						title="通过虾米分享到新浪微博"></i>
+					</div>
+					<!-- .share_to -->
+
+					<div class="share_comment hidden">
+						<ul>
+						</ul>
+					</div>
+				</li>
+				<li class="timeline_item" id="share_li_4d5a9bb4cc6da1a55800001b">
+
+					<div class="share_content">
+						<a
+						href="http://www.xiami.com/u/2726123"
+						class="user_image fl personalDropDown" title="rihanna">
+						<img
+						width="50" height="50" alt=""
+						src="../others/27261231297689359_1.jpg">
+						</a>
+						<p>
+							<a href="http://www.xiami.com/u/2726123">rihanna</a> 分享精选集
+						</p>
+						<div class="bubble bubble_collect">
+							<a title="精选集试听"
+							href="javascript:;"
+							onclick=""
+							class="bubble_play">精选集试听</a>
+							<a title="回顾2010神马的最给力了！ - 元氣大妞"
+							href="http://www.xiami.com/song/showcollect/id/2699718"
+							class="album_cover fl"
+							style="background-image: url(http://img.xiami.com/./images/collect/18/18/26997181293438641_1.jpg)">
+							<img width="100" height="100"
+							src="../others/26997181293438641_1.jpg"
+							alt="">
+							</a>
+							<p>
+								<a href="http://www.xiami.com/song/showcollect/id/2699718">回顾2010神马的最给力了！</a>
+							</p>
+							<p>
+								<span>
+									制作人：
+									<a href="http://www.xiami.com/u/765485">元氣大妞</a>
+								</span>
+							</p>
+						</div>
+						<p class="minor">
+							<a
+							href="http://www.xiami.com/share/detail/id/4d5a9bb4cc6da1a55800001b"
+							rel="1297783732">
+							<time datetime="45秒前">
+								45秒前
+							</time>
+							</a> 通过虾米网 分享 到 豆瓣网
+							-
+							<a
+							href="http://www.xiami.com/member/login?done=/share/detail/id/4d5a9bb4cc6da1a55800001b">回复(0)</a>
+						</p>
+					</div>
+					<!-- .share_content -->
+
+					<div class="share_to">
+						<b></b>
+						<i class="social douban"
+						title="通过虾米分享到豆瓣网"></i>
+					</div>
+					<!-- .share_to -->
+
+					<div class="share_comment hidden">
+						<ul>
+						</ul>
+					</div>
+				</li>
+			</ul>
+			<!-- <p class="mgt15"><a href="javascript:;" class="bot_more r5px">更多分享</a></p> -->
+		</div>
+		<div id="index_aside" class="fr mgt20">
+			<a
+			href="http://blog.xiami.com/?feed=rss2" class="fr rss_feed">
+			<i
+			class="rss_feed"></i>
+			</a>
+			<h2 class="text">虾米每天在进步</h2>
+			<ul>
+				<li class="clearfix">
+					<a title="把虾米搬上桌面 air应用上线" class="fl"
+					href="http://blog.xiami.com/?p=1319">把虾米搬上桌面 air应用上线</a>
+					<span
+					class="fr">01-21</span>
+				</li>
+				<li class="clearfix">
+					<a title="用户新年大礼——虾壳chrome浏览器插件" class="fl"
+					href="http://blog.xiami.com/?p=1308">用户新年大礼——虾壳chrome浏览器插件</a>
+					<span
+					class="fr">01-04</span>
+				</li>
+				<li class="clearfix">
+					<a title="从今天起，我们更关注音乐" class="fl"
+					href="http://blog.xiami.com/?p=1279">从今天起，我们更关注音乐</a>
+					<span class="fr">12-24</span>
+				</li>
+				<li class="clearfix">
+					<a title="民谣救护车，每个城市在行动" class="fl"
+					href="http://blog.xiami.com/?p=1273">民谣救护车，每个城市在行动</a>
+					<span
+					class="fr">12-15</span>
+				</li>
+				<li class="clearfix">
+					<a title="虾米网联手百度打造全新框电台" class="fl"
+					href="http://blog.xiami.com/?p=1269">虾米网联手百度打造全新框电台</a>
+					<span
+					class="fr">12-06</span>
+				</li>
+			</ul>
+			<hr class="null">
+			<h2 class="text">虾米音乐无处不在</h2>
+			<a title="虾米移动版，好音乐无处不在" class="xiami_mobile"
+			href="http://www.xiami.com/software/iphone">
+			<cite class="gray">
+				虾米音乐移动版
+				<br>
+				随时随地欣赏最喜爱的音乐
+				<br>
+				获取最及时的音乐信息
+			</cite>
+			</a>
+			<hr class="null">
+			<h2 class="text">虾米电台 Lite</h2>
+			<a title="虾米电台 Lite" style="display: block; margin-top: 15px"
+			href="http://www.xiami.com/software/xiamiair">
+			<img
+			src="../others/air_ad.jpg" width="250"
+			height="83" alt="虾米电台 Lite">
+			</a>
+			<hr class="null">
+			<a title="虾米新年电台 正在热播中"
+			href="http://www.xiami.com/radio/play/type/4/oid/2000001">
+			<img
+			src="../others/newyear_radio.jpg"
+			width="300" height="140" alt="虾米新年电台 正在热播中">
+			</a>
+		</div>
+	</div>
+	<!-- #content -->
+</div>

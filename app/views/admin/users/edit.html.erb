@@ -1,0 +1,150 @@
+<%= javascript_include_tag 'city' %>
+<div class="mainarea">
+  <div class="maininner">
+
+    <%= form_for [:admin, @user] do |f| %>
+      <div class="bdrcontent">
+        <div class="title">
+          <h3><%= @user[:nick] %> 基本信息</h3>
+        </div>
+        <table cellspacing="0" cellpadding="0" class="formtable">
+          <tbody><tr><th style="width:12em;">用户名</th>
+              <td><a href="/u/<%= @user[:id] %>" target="_blank"><%= @user[:nick] %></a></td></tr>
+
+
+            <tr><th>开通时间</th><td><%= @user[:created_at] %></td></tr>
+            <tr><th>更新时间</th><td><%= @user[:last_request_at] %></td></tr>
+            <tr><th>上次登录</th><td><%= @user[:last_login_at] %></td></tr>
+            <tr><th>上次IP</th><td><%= @user[:last_login_ip] %></td></tr>
+            <tr><th>好友数</th><td><%= @user.followers.size %></td></tr>
+            <tr><th>查看数</th><td></td></tr>
+            <tr><th>批量管理</th>
+              <td>
+                <a href="admincp.php?ac=blog&amp;uid=1&amp;searchsubmit=1" target="_blank">日志(0)</a> |
+                <a href="admincp.php?ac=album&amp;uid=1&amp;searchsubmit=1" target="_blank">相册(0)</a> |
+                <a href="admincp.php?ac=thread&amp;uid=1&amp;searchsubmit=1" target="_blank">话题(0)</a> |
+                <a href="admincp.php?ac=poll&amp;uid=1&amp;searchsubmit=1" target="_blank">投票(0)</a> |
+                <a href="admincp.php?ac=event&amp;uid=1&amp;searchsubmit=1" target="_blank">活动(0)</a> |
+                <a href="admincp.php?ac=doing&amp;uid=1&amp;searchsubmit=1" target="_blank">记录(0)</a> |
+                <a href="admincp.php?ac=share&amp;uid=1&amp;searchsubmit=1" target="_blank">分享(0)</a> |
+                <a href="admincp.php?ac=feed&amp;uid=1&amp;searchsubmit=1" target="_blank">事件</a> |
+                <a href="admincp.php?ac=pic&amp;uid=1&amp;searchsubmit=1" target="_blank">图片</a> |
+                <a href="admincp.php?ac=comment&amp;authorid=1&amp;searchsubmit=1" target="_blank">评论</a> |
+                <a href="admincp.php?ac=post&amp;uid=1&amp;searchsubmit=1" target="_blank">回帖</a>
+              </td></tr>
+
+          </tbody></table>
+      </div>
+      <br>
+      <div class="bdrcontent">
+        <div class="title">
+          <h3><%= @user[:nick] %> 个人资料</h3>
+        </div>
+        <table cellspacing="0" cellpadding="0" class="formtable">
+          <tbody><tr><th style="width:12em;">头像</th><td><a href="/u/<%= @user[:id] %>" target="_blank"><%= image_tag avatar(@user,:l) %></a>
+                <br>[<a href="admincp.php?ac=space&amp;op=deleteavatar&amp;uid=1">删除头像</a>]
+              </td></tr>
+
+
+            <tr>
+              <th style="width:12em;">常用邮箱</th>
+              <td>
+                <%= f.text_field :email, :class=>'t_input' %>
+              </td>
+            </tr>
+            <tr><th style="width:12em;">昵称</th><td><%= f.text_field :nick, :class=>'t_input',:size=>20 %></td></tr>
+
+
+            <tr><th>清空自定义CSS</th><td>
+                <input type="radio" name="clearcss" value="0" checked=""> 不处理
+                <input type="radio" name="clearcss" value="1"> 清空
+                <p>用户自定义的CSS如果存在恶意代码，可以选择清空。</p>
+              </td></tr>
+
+            <tr>
+              <th>性别</th>
+              <td>
+                <%= f.select :sex, [nil,'男','女','秘密'] %>
+              </td>
+            </tr>
+            <tr>
+              <th>生日</th>
+              <td>
+                <%= f.date_select :birthday, {:start_year => 1970, :use_month_numbers => true } %>
+              </td>
+            </tr>
+            <tr>
+              <th>居住地</th>
+              <td>
+                <%= f.select :province, {} %>
+                &nbsp;&nbsp;
+                <%= f.select :city, {} %>
+              </td>
+            </tr>
+            <tr>
+              <th>移动电话</th>
+              <td>
+                <%= f.text_field :mobile,:size=>20 %>
+              </td>
+            </tr>
+          </tbody></table>
+      </div>
+      <br/>
+      <div class="bdrcontent">
+        <div class="title">
+          <h3><%= @user[:nick] %> 淘宝认证</h3>
+        </div>
+        <table cellspacing="0" cellpadding="0" class="formtable">
+          <tbody><tr><th style="width:12em;">淘宝ID</th><td>
+                <%= f.text_field :taobaoid,:size=>20 %>
+                <input type="radio" name="namestatus" value="0" checked=""> 认证失败
+                <input type="radio" name="namestatus" value="1"> 认证通过
+              </td></tr>
+          </tbody></table>
+      </div>
+      <br>
+      <div class="bdrcontent">
+        <div class="title">
+          <h3><%= @user[:nick] %> 积分、经验值、空间大小管理</h3>
+        </div>
+        <table cellspacing="0" cellpadding="0" class="formtable">
+          <tbody><tr><th style="width:12em;">额外空间大小</th><td>
+                <input type="text" class="t_input" name="addsize" value="0" size="10"> M</td></tr>
+            <tr><th>积分数</th><td><%= f.text_field :credit,:size=>10 %></td></tr>
+            <tr><th>经验值</th><td><%= f.text_field :exp,:size=>10 %></td></tr>
+          </tbody></table>
+      </div>
+      <br>
+      <div class="bdrcontent">
+        <div class="title">
+          <h3><%= @user[:nick] %> 保护信息</h3>
+        </div>
+        <table cellspacing="0" cellpadding="0" class="formtable">
+
+          <tbody><tr><th style="width:12em;">用户组</th><td>
+                <%= f.select :role, {'不限制'=>'','普通会员'=>0,'机器人'=>1,'站点管理员'=>88} %>
+
+                <p>普通用户组，会自动根据用户经验数目的多少进行自动升级/降级<br>系统用户组，用户的身份不受经验值影响</p></td></tr>
+
+            <tr><th>删除保护</th><td>
+                <input type="radio" name="flag" value="0"/> 不保护
+                <input type="radio" name="flag" value="1" checked=""/> 保护
+                <p>保护状态下，该用户将不能够被删除。</p>
+              </td></tr>
+
+          </tbody></table>
+        <script type="text/javascript">
+          initPlace('<%= @user[:city] %>','<%= @user[:province] %>');
+          function showDateSet(val) {
+            var expObj = $("expirationtr");
+            expObj.style.display = parseInt(val) ? '' : 'none';
+          }
+        </script>
+      </div>
+
+      <div class="footactions">
+        <%= f.submit '提交',:class=>'submit' %>
+      </div>
+    <% end %>
+  </div>
+</div>

@@ -1,0 +1,121 @@
+<div class="mainarea">
+  <div class="maininner">
+
+    <div class="tabs_header">
+      <ul class="tabs">
+        <li class="active"><a href="/admin/users"><span>管理用户</span></a></li>
+      </ul>
+    </div>
+
+    <%= form_for :search, :url => admin_users_path do |f| %>
+      <div class="block style4">
+        <table cellspacing="3" cellpadding="3">
+          <tbody><tr>
+              <th>用户UID</th><td><%= f.text_field :id_equals,:size=>10 %></td>
+              <th>昵称</th><td><%= f.text_field :nick_contains,:size=>20 %></td>
+            </tr>
+            <tr>
+              <th>用户组</th><td>
+                <%= f.select :role_equals, {'不限制'=>'','普通会员'=>0,'机器人'=>1,'站点管理员'=>88} %>
+              </td></tr>
+            <tr>
+              <th>用户经验值</th><td>
+                <%= f.text_field :exp_greater_than,:size=>10 %> ~
+                <%= f.text_field :exp_less_than,:size=>10 %>
+              </td>
+            </tr>
+            <tr>
+              <th>用户积分</th><td>
+                <%= f.text_field :credit_greater_than,:size=>10 %> ~
+                <%= f.text_field :credit_less_than,:size=>10 %>
+              </td>
+            </tr>
+            <tr><th>空间创建时间</th><td colspan="3">
+                <input type="text" name="dateline1" value="" size="10"> ~
+                <input type="text" name="dateline2" value="" size="10"> (YYYY-MM-DD)
+              </td>
+            </tr>
+            <tr><th>最后更新时间</th><td colspan="3">
+                <input type="text" name="updatetime1" value="" size="10"> ~
+                <input type="text" name="updatetime2" value="" size="10"> (YYYY-MM-DD)
+              </td>
+            </tr>
+            <tr><th>结果排序</th>
+              <td colspan="3">
+                <select name="orderby">
+                  <option value="id">默认排序</option>
+                  <option value="created_at">建立时间</option>
+                  <option value="last_request_at">访问时间</option>
+                  <option value="viewnum">访问量</option>
+                  <option value="exp">经验值</option>
+                  <option value="credit">积分数</option>
+                  <option value="followers">好友数</option>
+                </select>
+                <select name="ordersc">
+                  <option value="desc" selected="">递减</option>
+                  <option value="asc">递增</option>
+                </select>
+                <%= f.submit '搜索', :class=>'submit' %>
+              </td>
+            </tr>
+          </tbody></table>
+      </div>
+    <% end %>
+
+
+
+    <div class="bdrcontent">
+
+      <form method="post" action="admincp.php?ac=space&amp;perpage=20&amp;page=1">
+        <input type="hidden" name="formhash" value="e6c92636">
+        <table cellspacing="2" cellpadding="2" class="listtable">
+          <tbody><tr class="line">
+              <th width="30">选择</th>
+              <th width="55"></th>
+              <th></th>
+              <th></th>
+              <th></th>
+              <th></th>
+              <th>操作</th>
+            </tr>
+            <% @users.each do |user| %>
+              <tr>
+                <td>
+                  <input type="checkbox" name="uids[]" value="1">
+                </td>
+                <td>
+                  <a href="/u/<%= user[:_id] %>" target="_blank"></a>
+                </td>
+                <td>
+                  <a href="/u/<%= user[:_id] %>" target="_blank"><%= user[:name] %></a>
+                </td>
+                <td>
+                  <%= user[:email] %></td>
+                <td class="gray">
+                  <%= user[:exp] %> / <%= user[:credit] %></td>
+                <td>
+                  <%= user[:created_at] %><br>
+                  <%= user[:last_request_at] %></td>
+                <td><%= link_to '管理',edit_admin_user_path(user) %><br></td>
+              </tr>
+            <% end %>
+          </tbody></table>
+      </form></div>
+
+    <div class="footactions">
+      <input type="checkbox" id="chkall" name="chkall" onclick="checkAll(this.form, 'uids')">全选 &nbsp;&nbsp;
+      <input type="radio" name="optype" value="1"> 通过实名
+      <input type="radio" name="optype" value="2"> 取消实名
+      <input type="radio" name="optype" value="3"> 清空实名
+
+      <input type="radio" name="optype" value="4"> 发送邮件
+      <input type="radio" name="optype" value="5"> 打招呼
+      <input type="radio" name="optype" value="7"> 赠送道具
+      <input type="radio" name="optype" value="6"> 清理CSS
+
+      <input type="submit" name="listsubmit" value="提交" class="submit">
+      
+    </div>
+
+  </div>
+</div>

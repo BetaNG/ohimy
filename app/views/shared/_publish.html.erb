@@ -1,0 +1,74 @@
+<%= stylesheet_link_tag 'push'%>
+<div id="publish_me" class="pub_box">
+	<div class="pub_area r5">
+		<ul class="t_type">
+			<li class="c">
+				<a href="javascript:;" style="background-position:-2px -100px;">随便聊聊</a>
+			</li>
+			<li class="">
+				<a href="javascript:;" style="background-position:-2px -76px;">推荐宝贝</a>
+			</li>
+			<li class="">
+				<a href="javascript:;" style="background-position:-2px -123px;">上传照片</a>
+			</li>
+		</ul>
+		<div class="pub_edit r5">
+			<div class="pub_type0" style="display: block; ">
+				<textarea id="pub_content1" class="pub_txt fl r5" style="height: 48px; ">
+				</textarea>
+				<input id="pub_submit1" type="button" class="pub_btn fl rr5" value="发表">
+				<div class="pub_ext">
+					<div class="pub_opt fl">
+						添加：
+						<a class="add_face" style="background-position:-2px -5px;" href="javascript:;" onclick="return false;" w="pub">表情</a>
+						<a style="background-position:-2px -76px;" href="javascript:;" w="pub" class="add_goods">商品</a>
+						<a style="display:none;background-position:-2px -52px;" href="javascript:;" class="add_shop" w="pub">掌柜</a>
+						<a class="add_pic" href="javascript:;" style="background-position:-2px -28px;" w="pub">图片</a>
+					</div>
+					<div class="pub_out fr">
+						<a target="_blank" href="/settings/bind">同步设置</a>
+					</div>
+				</div>
+			</div>
+			<div class="pub_type1" style="display: none; ">
+				<div class="pub_goods_s1">
+					<input type="text" class="pgs1_txt fl rl3" value="将商品网址粘贴在此即可">
+					<input type="button" class="pgs1_btn fl rr3" value="确定">
+					<div class="goods_support">
+						已支持网站：
+						<img src="/images/taobao.gif">
+						<a href="http://www.taobao.com/" target="_blank">淘宝</a>
+						<img src="/images/paipai.gif">
+						<a href="http://www.paipai.com/" target="_blank">拍拍</a>
+						<img src="/images/dangdang.gif">
+						<a href="http://www.dangdang.com/" target="_blank">当当</a>
+						<img src="/images/vancl.gif">
+						<a href="http://www.vancl.com/" target="_blank">凡客</a>
+						<img src="/images/360buy.gif">
+						<a href="http://www.360buy.com/" target="_blank">京东</a>
+						<img src="/images/topshop.gif">
+						<a href="http://www.topshop.com/" target="_blank">TopShop</a>
+						<img src="/images/caomeipai.gif">
+						<a href="http://buy.caomeipai.com/" target="_blank">草莓派</a>
+					</div>
+				</div>
+			</div>
+			<div class="pub_type2" style="display: none; ">
+				<div class="pub_pic_s1">
+					<%= form_for :attachment, :url => '/gall/addpic', :html => {:id=>"picUploadForm2", :multipart => true} do |form| %>
+						选择您要上传的图片（支持GIF/JPG/PNG，最大2M）
+						<br>
+						<input type="hidden" name="pub_pic" value="">
+						<input type="button" value="从电脑中选择图片..." class="pps1_btn r5">
+						<%= form.file_field :attachment, :class=>'tfile' %>
+					<% end %>
+				</div>
+			</div>
+			<em class="word_count"><i>0</i>/140</em>
+		</div>
+	</div>
+	<ul class="pub_img" style="display: none"></ul>
+	<div class="clear">
+	</div>
+</div>
+<div id="lb_face" class="light_box" style="top: 185px; left: 75px; display: none; "></div>

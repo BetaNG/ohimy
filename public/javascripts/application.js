@@ -492,6 +492,14 @@ $(function() {
 	$(".cmt").live("click", function() {
 		$(this).parent().next().toggle()
 	})
+	$("#comment_submit").live("click",function(){
+		var _form = $(this).parents("#comment_form")
+		_form.ajaxSubmit(function(data){
+			$(".pub_txt").val("")
+			_form.next("ul").prepend(data)
+		})
+		return false
+	})
 	/* 转发 */
 	$(".fw")
 			.live(

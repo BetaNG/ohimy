@@ -107,7 +107,7 @@ DEPENDENCIES
   crack
   devise!
   meta_search
-  mongoid (~> 2.0)
+  mongoid
   mongoid-paperclip
   nokogiri
   paperclip

@@ -2,8 +2,9 @@
 class GallController < ApplicationController
   before_filter :authenticate_user!
   before_filter :only_post, :only => [:get_item_from_url,:to_forward]
+  before_filter :load_twitter, :only => [:comment,:to_forward]
   def index
-    @twitters = Twitter.find(:all,:sort=>['_id', :desc])
+    @twitters = Twitter.find(:all,:sort=>['_id', :desc]).paginate(page: 1, per_page: 2)
   end
 
   # => 发表
@@ -22,6 +23,11 @@ class GallController < ApplicationController
       end
     end
     render :partial => 'twitter'
+  end
+
+  def comment
+    @comment = @twitter.comments.create(:user=>current_user, :content=>params[:content])
+    render :partial => "comment"
   end
 
   def get_item_from_url
@@ -57,7 +63,6 @@ class GallController < ApplicationController
   end
   
   def to_forward
-    @twitter = Twitter.find(params[:id])
     if @twitter.twitter
       @forward = @twitter.twitter
       @content = "//@#{@twitter.user.name} #{@twitter[:content]}"
@@ -81,5 +86,8 @@ class GallController < ApplicationController
   def only_post
     redirect_to root_path unless request.post?
   end
-
+  
+  def load_twitter
+    @twitter = Twitter.find(params[:id])
+  end
 end

@@ -9,6 +9,7 @@ class User
 
   embeds_many :avatars
   references_many :twitters
+  references_many :comments
   
   field :name
   field :email

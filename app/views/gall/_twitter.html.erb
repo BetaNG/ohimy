@@ -20,7 +20,7 @@
 			<p class="sms">
 				<a class="icard n" href="/u/<%= @forward.user._id %>">@<%= @forward.user.name %></a>：<%= @forward[:content] %>
 				<a href="/note/117a20">原文转发<%= "(#{@forward[:ftimes]})" %></a>
-				<a href="/note/117a20">原文评论(4)</a>
+				<a href="/note/117a20">原文评论<%= "(#{@twitter.comments.count})" %></a>
 			</p>
 			<div class="pic">
 				<% @forward.twitter_files.each do |ftf| %>
@@ -111,17 +111,19 @@
 		</ul>
 		<div class="tl">
 			<a class="fw" href="javascript:;" w="<%= @twitter[:_id] %>">转发<%= "(#{@twitter[:ftimes]})" %></a>
-			<a class="cmt" href="javascript:;" w="<%= @twitter[:_id] %>">评论</a>
+			<a class="cmt" href="javascript:;" w="<%= @twitter[:_id] %>">评论<%= "(#{@twitter.comments.count})" %></a>
 		</div>
 		<div class="cf_b" t="cmt" style="display: none">
 			<img src="../images/commnet_arrow.png" class="cf_a">
+			<form accept-charset="UTF-8" action="/gall/comment" id="comment_form" method="post">
 			<div class="cf_pub_b r5">
 				<a href="javascript:;">
 				<img src="../images/add_face_c.png" w="f" class="add_face fl">
 				</a>
-				<textarea class="pub_txt fl rl3" style="height: 21px; ">
-				</textarea>
-				<input type="button" value="评论" class="pub_btn fl rr3">
+				<input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>" />
+				<input type="hidden" name="id" value="<%= @twitter[:_id] %>">
+				<textarea class="pub_txt fl rl3" cols="40" id="comment_content" name="content" rows="20" style="height: 21px;"></textarea> 
+				<input class="pub_btn fl rr3" id="comment_submit" name="commit" type="submit" value="评论" /> 
 				<div class="cf_opt">
 					<input type="checkbox" id="c_cb_11qcq0" class="c_cb">
 					<label for="cb_11qcq0">
@@ -129,6 +131,12 @@
 					</label>
 				</div>
 			</div>
+			</form>
+			<ul class="c_l rb5">
+				<% @twitter.comments.limit(4).each do |comment| %>
+				<%= render "comment", :collection => @comment = comment %>
+				<% end %>
+			</ul>
 		</div>
 		<ul class="t_m_l_h">
 		</ul>

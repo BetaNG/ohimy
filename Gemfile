@@ -5,7 +5,7 @@ gem 'rails', '3.0.7'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
-gem 'mongoid', '~> 2.0'
+gem 'mongoid'
 gem 'bson_ext', '~> 1.3'
 gem 'devise', :git => 'git://github.com/plataformatec/devise.git'
 
@@ -13,8 +13,6 @@ gem 'devise', :git => 'git://github.com/plataformatec/devise.git'
 gem 'crack'
 # => 文件上传
 gem 'paperclip'
-# => 搜索
-gem "meta_search"
 # => 
 gem "mongoid-paperclip", :require => "mongoid_paperclip"
 # => 网页抓取

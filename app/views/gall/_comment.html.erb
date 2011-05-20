@@ -1,0 +1,11 @@
+<li class="c_f" uid="<%= @comment.user._id %>" tid="<%= @comment.commentable._id %>">
+	<a href="/u/<%= @comment.user._id %>" target="_blank">
+	<img src="http://s2.mogujie.cn/avatar/avatar_default.jpg_48x48.jpg" class="avt icard" alt="<%= @comment.user.name %>">
+	</a>
+	<p class="sms">
+		<a href="/u/<%= @comment.user._id %>" target="_blank" class="n icard"><%= @comment.user.name %></a>：<%= @comment.content %>（<%= status_time_ago_in_words @comment[:created_at] %>）
+	</p>
+	<div>
+		<a href="javascript:;" w="f" class="rpl">回复</a>
+	</div>
+</li>

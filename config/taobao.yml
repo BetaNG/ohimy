@@ -1,17 +1,17 @@
 development:
-  app_key: 12235094
-  secret_key: 2eed19a488b81b6c1479c55f9123e42f
+  app_key: 12264868
+  secret_key: 2502494ecf3f27802d85a2d9c9014687
   format: json
   host: prod
 
 test:
-  app_key: 12235094
+  app_key: 12264868
   secret_key: sandboxe865cdc76c148a3b0ae4ff144
   format: xml   
   host: sandbox 
 
 production:
-  app_key: 12235094
-  secret_key: 4b0b545ece0e6eecc56e337b7117bfef
+  app_key: 12264868
+  secret_key: 2502494ecf3f27802d85a2d9c9014687
   format: json
   host: prod

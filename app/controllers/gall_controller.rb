@@ -1,10 +1,15 @@
 # encoding: utf-8
 class GallController < ApplicationController
   before_filter :authenticate_user!
-  before_filter :only_post, :only => [:get_item_from_url,:to_forward]
+  before_filter :only_post, :only => [:get_item_from_url,:to_forward,:page]
   before_filter :load_twitter, :only => [:comment,:to_forward]
   def index
-    @twitters = Twitter.find(:all,:sort=>['_id', :desc]).paginate(page: 1, per_page: 2)
+    @twitters = Twitter.find(:all,:sort=>['_id', :desc]).paginate(page: 1, per_page: 12)
+  end
+  
+  def page
+    @twitters = Twitter.find(:all,:sort=>['_id', :desc]).paginate(page: params[:page], per_page: 12)
+    render :partial => "page"
   end
 
   # => 发表

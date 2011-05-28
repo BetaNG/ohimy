@@ -33,7 +33,7 @@
               <div class="n_header_user_loged">
                 <dl>
                   <dt>
-                    <span><a href="/u/<%= current_user[:_id] %>"> <img src="http://img.xiami.com/./images/avatar/97/2844897/28448971297700282_1.jpg" width="22" height="22"> <strong><%= current_user[:name] %></strong></a><b></b></span></dt>
+                    <span><a href="/u/<%= current_user[:_id] %>"> <%= image_tag avatar(current_user,:s),:width=>"22", :height=>22 %> <strong><%= current_user[:name] %></strong></a><b></b></span></dt>
                   <dd>
                     <ul>
                       <li><a href="/u/<%= current_user[:_id] %>">个人主页</a></li>

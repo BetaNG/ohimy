@@ -142,12 +142,18 @@ $(function() {
 			});
 
 	// 载入更多
+	var page = 1;
 	$("a.bot_more").click(function() {
 		$(this).addClass("loading").text("正在载入...");
-		alert("ws")
+		page = page+1
+	    var $this = $(this);
+	    $.post('/gall/page',{page : page,authenticity_token : $token},function(data){
+	    	$('.t_l').append(data);
+            $this.removeClass("loading").text("更多内容");
+          });
 		return false;
 	});
-
+	
 	var timer = null;
 	var key = '';
 	var result_count = 0;
@@ -331,6 +337,16 @@ $(function() {
 	/**/
 
 	/* twitter */
+	
+	//取消
+	$("#pub_cancel3").live("click",function(){
+		$(".pub_type2").html(OMTEMPLATE.pub_pic_step1)
+	})
+	
+	$(".lb_cs").live("click",function(){
+		$(".light_box").remove()
+	})
+	
 	$(".pic div").live("click", function() {
 		var n_index = $(this).index() // 第n张图片
 		$hideDiv = $(this).parent().next()

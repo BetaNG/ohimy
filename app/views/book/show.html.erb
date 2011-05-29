@@ -1,0 +1,134 @@
+<%= stylesheet_link_tag 'book'%>
+<div id="page" class="blue">
+	<div id="wrapper" class="corner clearfix">
+		<div>
+			&nbsp;
+		</div>
+		<div id="imagewall_container" class="imagewall" style="height: 6206px; ">
+			<div style="left: 0px; top: 0px; opacity: 1;" class="i_w_f o u_profile">
+				<div class="b_u_hd">
+				</div>
+				<div class="b_u_bd">
+					<div class="up_info">
+						<a class="uavatar" href="/u/16nxi">
+						<img src="http://s2.mogujie.cn/avatar/110512/3bxz_4mjoqf0dk_1936x2592.jpg_100x100.jpg">
+						</a>
+						<a class="name gc" href="/u/16nxi">放开那只兔几</a>
+						<a onclick="MOGU.People_Add_Follow('16nxi', 'homehb')" class="add_fo" href="javascript:;"></a>
+					</div>
+					<div class="up_title">
+						她关注的热点：
+						<ul class="nt_list">
+							<li>
+								<a href="/book/hot/短裤" target="_blank" style="background-image: url(http://www.mogujie.com/img/note_fav.png); ">短裤</a>
+								<i style="background-image: url(http://www.mogujie.com/img/note_fav.png); "></i>
+							</li>
+							<li>
+								<a href="/book/hot/热裤" target="_blank" style="background-image: url(http://www.mogujie.com/img/note_fav.png); ">热裤</a>
+								<i style="background-image: url(http://www.mogujie.com/img/note_fav.png); "></i>
+							</li>
+							<li>
+								<a href="/book/hot/新款" target="_blank" style="background-image: url(http://www.mogujie.com/img/note_fav.png); ">新款</a>
+								<i style="background-image: url(http://www.mogujie.com/img/note_fav.png); "></i>
+							</li>
+							<li>
+								<a href="/book/hot/休闲" target="_blank" style="background-image: url(http://www.mogujie.com/img/note_fav.png); ">休闲</a>
+								<i style="background-image: url(http://www.mogujie.com/img/note_fav.png); "></i>
+							</li>
+							<li>
+								<a href="/book/hot/波点" target="_blank" style="background-image: url(http://www.mogujie.com/img/note_fav.png); ">波点</a>
+								<i style="background-image: url(http://www.mogujie.com/img/note_fav.png); "></i>
+							</li>
+							<li>
+								<a href="/book/hot/褶皱" target="_blank" style="background-image: url(http://www.mogujie.com/img/note_fav.png); ">褶皱</a>
+								<i style="background-image: url(http://www.mogujie.com/img/note_fav.png); "></i>
+							</li>
+							<li>
+								<a href="/book/hot/ZA" target="_blank" style="background-image: url(http://www.mogujie.com/img/note_fav.png); ">ZA</a>
+								<i style="background-image: url(http://www.mogujie.com/img/note_fav.png); "></i>
+							</li>
+							<li>
+								<a href="/book/hot/半身裙" target="_blank" style="background-image: url(http://www.mogujie.com/img/note_fav.png); ">半身裙</a>
+								<i style="background-image: url(http://www.mogujie.com/img/note_fav.png); "></i>
+							</li>
+							<li>
+								<a href="/book/hot/裙子" target="_blank" style="background-image: url(http://www.mogujie.com/img/note_fav.png); ">裙子</a>
+								<i style="background-image: url(http://www.mogujie.com/img/note_fav.png); "></i>
+							</li>
+							<li>
+								<a href="/book/hot/百搭" target="_blank" style="background-image: url(http://www.mogujie.com/img/note_fav.png); ">百搭</a>
+								<i style="background-image: url(http://www.mogujie.com/img/note_fav.png); "></i>
+							</li>
+							<li>
+								<a href="/book/hot/亮色" target="_blank" style="background-image: url(http://www.mogujie.com/img/note_fav.png); ">亮色</a>
+								<i style="background-image: url(http://www.mogujie.com/img/note_fav.png); "></i>
+							</li>
+							<li>
+								<a href="/book/hot/鹿皮" target="_blank" style="background-image: url(http://www.mogujie.com/img/note_fav.png); ">鹿皮</a>
+								<i style="background-image: url(http://www.mogujie.com/img/note_fav.png); "></i>
+							</li>
+							<li>
+								<a href="/book/hot/短裙" target="_blank" style="background-image: url(http://www.mogujie.com/img/note_fav.png); ">短裙</a>
+								<i style="background-image: url(http://www.mogujie.com/img/note_fav.png); "></i>
+							</li>
+							<li>
+								<a href="/book/hot/蕾丝" target="_blank" style="background-image: url(http://www.mogujie.com/img/note_fav.png); ">蕾丝</a>
+								<i style="background-image: url(http://www.mogujie.com/img/note_fav.png); "></i>
+							</li>
+							<li>
+								<a href="/book/hot/原单" target="_blank" style="background-image: url(http://www.mogujie.com/img/note_fav.png); ">原单</a>
+								<i style="background-image: url(http://www.mogujie.com/img/note_fav.png); "></i>
+							</li>
+						</ul>
+					</div>
+				</div>
+				<div class="b_u_ft">
+				</div>
+			</div>
+			<% @books.each do |book| %>
+			<div class="i_w_f o" tid="11hlu8" style="left: 0px; top: 0px; opacity: 1; ">
+				<div class="hd">
+				</div>
+				<div class="bd">
+					<ul class="pic">
+						<li>
+							<a target="_blank" href="/note/11hlu8" onclick="var val = this.href;var count = val.indexOf('?');if(count &gt; 0){ this.href = val.substr(0,count); }this.href+='?showtype=good&amp;goodsid=16jsm'" style="width:180px;height:180px">
+							<img src="http://s2.mogujie.cn/bao/110507/6cmy_4mhr551nb_460x460.jpg_180x999.jpg">
+							</a>
+							<span class="p">
+								<span>￥118.00</span>
+								<i></i>
+							</span>
+						</li>
+					</ul>
+					<div class="favorite">
+						<a class="favaImg" href="javascript:;"> </a>
+						<div class="favDiv">
+							<a href="/note/11hlu8" class="favCount" target="_blank">9</a>
+							<i></i>
+						</div>
+					</div>
+					<div class="tk">
+						<a target="_blank" href="/u/1cpbg/">
+						<img src="http://s2.mogujie.cn/avatar/110507/6cmy_4mhr2gcl3_375x500.jpg_24x24.jpg" class="icard avt r3" alt="小噗koko">
+						</a>
+						<div class="inf">
+							<a target="_blank" href="/u/1cpbg/" class="icard n">小噗koko</a>
+							<br>
+							今天 03:22
+						</div>
+						<p>
+							<img src="/img/face/ext.normal.7e.love.gif">
+							我更爱黑的o(∩_∩)o 哈哈~最近搭配的都比较个性 so..
+						</p>
+					</div>
+				</div><!-- .bd -->
+				<div class="ft">
+				</div>
+			</div><!-- .i_w_f -->
+			<% end %>
+		</div>
+		<div class="clear">
+		</div>
+	</div>
+</div>

@@ -145,15 +145,18 @@ $(function() {
 	var page = 1;
 	$("a.bot_more").click(function() {
 		$(this).addClass("loading").text("正在载入...");
-		page = page+1
-	    var $this = $(this);
-	    $.post('/gall/page',{page : page,authenticity_token : $token},function(data){
-	    	$('.t_l').append(data);
-            $this.removeClass("loading").text("更多内容");
-          });
+		page = page + 1
+		var $this = $(this);
+		$.post('/gall/page', {
+			page : page,
+			authenticity_token : $token
+		}, function(data) {
+			$('.t_l').append(data);
+			$this.removeClass("loading").text("更多内容");
+		});
 		return false;
 	});
-	
+
 	var timer = null;
 	var key = '';
 	var result_count = 0;
@@ -337,16 +340,16 @@ $(function() {
 	/**/
 
 	/* twitter */
-	
-	//取消
-	$("#pub_cancel3").live("click",function(){
+
+	// 取消
+	$("#pub_cancel3").live("click", function() {
 		$(".pub_type2").html(OMTEMPLATE.pub_pic_step1)
 	})
-	
-	$(".lb_cs").live("click",function(){
+
+	$(".lb_cs").live("click", function() {
 		$(".light_box").remove()
 	})
-	
+
 	$(".pic div").live("click", function() {
 		var n_index = $(this).index() // 第n张图片
 		$hideDiv = $(this).parent().next()
@@ -402,8 +405,8 @@ $(function() {
 			"click",
 			function() {
 				var lb_pic = OMTEMPLATE.lightBox_f.replace(/{title}/g, '')
-				.replace(/{id}/g, "lb_pic").replace(/{body}/g,
-						OMTEMPLATE.addPicUp);
+						.replace(/{id}/g, "lb_pic").replace(/{body}/g,
+								OMTEMPLATE.addPicUp);
 				$("body").append(lb_pic)
 				$("#lb_pic").show().css({
 					top : 295,
@@ -508,9 +511,9 @@ $(function() {
 	$(".cmt").live("click", function() {
 		$(this).parent().next().toggle()
 	})
-	$("#comment_submit").live("click",function(){
+	$("#comment_submit").live("click", function() {
 		var _form = $(this).parents("#comment_form")
-		_form.ajaxSubmit(function(data){
+		_form.ajaxSubmit(function(data) {
 			$(".pub_txt").val("")
 			_form.next("ul").prepend(data)
 		})
@@ -553,4 +556,11 @@ $(function() {
 				else
 					$count.html(num.toString());
 			}).trigger('keyup')
+	// 画报
+	$('#imagewall_container').isotope({
+		itemSelector : '.i_w_f',
+        masonry : {
+          columnWidth: 235
+        }
+	});
 });

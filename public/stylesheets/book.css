@@ -1,3 +1,6 @@
+.gc {
+	color: #E71F8D;
+}
 .top_tags {
 	width:940px;
 	margin:0 20px;
@@ -275,6 +278,7 @@
 .i_w_f {
 	width:220px;
 	background-color:#FFF;
+	margin-top: 20px;
 	position:absolute;
 	opacity:0;
 	filter:progid
@@ -455,12 +459,12 @@
 .i_w_f .favorite .manadiv a:hover {
 	color:#f06;
 }
-.light_box {
-	z-index:10000;
-	left:0;
-	top:0;
-	position:absolute;
-	display:none;
-	*
-	width:491px;
+.imagewall .col1, .imagewall .col2, .imagewall .col3, .imagewall .col4 {
+	width: 220px;
+	margin-right: 20px;
+	float: left;
+}
+.clear_in {
+	overflow: hidden;
+	zoom: 1;
 }

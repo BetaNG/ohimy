@@ -191,7 +191,7 @@
 			</div>
 		</div>
 		<div id="imagewall_container" class="imagewall" style="height: 6206px; ">
-
+			<% @looks.each do |look| %>
 			<div class="i_w_f o" tid="11hlu8" style="left: 0px; top: 0px; opacity: 1; ">
 				<div class="hd">
 				</div>
@@ -231,7 +231,9 @@
 				</div><!-- .bd -->
 				<div class="ft">
 				</div>
-			</div><!-- .i_w_f -->
+			</div>
+			<% end %>
+			<!-- .i_w_f -->
 			<div class="i_w_f o" tid="11hnem" style="left: 240px; top: 0px; opacity: 1; ">
 				<div class="hd">
 				</div>

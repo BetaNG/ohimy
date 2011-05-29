@@ -15,8 +15,6 @@ gem 'crack'
 gem 'paperclip'
 # => 
 gem "mongoid-paperclip", :require => "mongoid_paperclip"
-# => 网页抓取
-gem 'nokogiri'
 # Use unicorn as the web server
 # gem 'unicorn'
 

@@ -509,7 +509,7 @@ $(function() {
 	})
 	/* 评论 */
 	$(".cmt").live("click", function() {
-		$(this).parent().next().toggle()
+		$(this).parent().next("div").toggle()
 	})
 	$("#comment_submit").live("click", function() {
 		var _form = $(this).parents("#comment_form")
@@ -518,6 +518,23 @@ $(function() {
 			_form.next("ul").prepend(data)
 		})
 		return false
+	})
+	/* 喜欢 */
+	$(".add_fav").live("click",function(){
+		$this = $(this)
+		$tid = $this.parents("li").attr("id")
+		$.post("/gall/fav",{id:$tid,authenticity_token : $token},function(data){
+			if(data=="false"){alert("亲，你已经喜欢上了！")}
+			else $this.next().find(".favCount").html(data)
+		})
+	})
+	$(".favaImg").live("click",function(){
+		$this = $(this)
+		$tid = $this.parents(".i_w_f").attr("tid")
+		$.post("/gall/fav",{id:$tid,authenticity_token : $token},function(data){
+			if(data=="false"){alert("亲，你已经喜欢上了！")}
+			else $this.next().find(".favCount").html(data)
+		})
 	})
 	/* 转发 */
 	$(".fw")
@@ -557,10 +574,12 @@ $(function() {
 					$count.html(num.toString());
 			}).trigger('keyup')
 	// 画报
-	$('#imagewall_container').isotope({
-		itemSelector : '.i_w_f',
-        masonry : {
-          columnWidth: 235
-        }
+	$('#imagewall_container').imagesLoaded(function() {
+		$(this).isotope({
+			itemSelector : '.i_w_f',
+			masonry : {
+				columnWidth : 235
+			}
+		});
 	});
 });

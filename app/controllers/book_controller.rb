@@ -1,3 +1,4 @@
+# encoding: utf-8
 class BookController < ApplicationController
   before_filter :authenticate_user!
   
@@ -6,6 +7,7 @@ class BookController < ApplicationController
   end
   
   def show
-    @books = Twitter.find(:all,:sort=>['_id', :desc])
+    @user = User.find(params[:id])
+    @books = @user.twitters.limit(20)
   end
 end

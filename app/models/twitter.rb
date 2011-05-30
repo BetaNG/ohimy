@@ -11,5 +11,6 @@ class Twitter
   references_many :forwards, :class_name => "Twitter",:inverse_of => :twitter
   referenced_in :twitter
   has_many :comments, as: :commentable
+  has_many :favorites, as: :favoritable
   
 end

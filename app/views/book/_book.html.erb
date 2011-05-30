@@ -1,0 +1,147 @@
+<div id="imagewall_container" class="imagewall">
+	<% unless @user.nil? %>
+	<div class="i_w_f o u_profile">
+		<div class="b_u_hd">
+		</div>
+		<div class="b_u_bd">
+			<div class="up_info">
+				<a class="uavatar" href="/u/<%= @user[:_id] %>"><%= image_tag avatar(@user,:m), :class=>"r3", :width=>100, :height=>100 %></a>
+				<a class="name gc" href="/u/<%= @user[:_id] %>"><%= @user[:name] %></a>
+				<a class="add_fo" href="javascript:;"></a>
+				<a class="fo_st"></a>
+			</div>
+			<div class="up_title">
+				她关注的热点：
+				<ul class="nt_list">
+					<li>
+						<a href="/book/hot/小包" target="_blank" style="background-image: url(http://www.mogujie.com/img/note_fav.png); ">小包</a>
+						<i style="background-image: url(http://www.mogujie.com/img/note_fav.png); "></i>
+					</li>
+					<li>
+						<a href="/book/hot/黑色" target="_blank" style="background-image: url(http://www.mogujie.com/img/note_fav.png); ">黑色</a>
+						<i style="background-image: url(http://www.mogujie.com/img/note_fav.png); "></i>
+					</li>
+					<li>
+						<a href="/book/hot/羊皮" target="_blank" style="background-image: url(http://www.mogujie.com/img/note_fav.png); ">羊皮</a>
+						<i style="background-image: url(http://www.mogujie.com/img/note_fav.png); "></i>
+					</li>
+					<li>
+						<a href="/book/hot/斜挎" target="_blank" style="background-image: url(http://www.mogujie.com/img/note_fav.png); ">斜挎</a>
+						<i style="background-image: url(http://www.mogujie.com/img/note_fav.png); "></i>
+					</li>
+					<li>
+						<a href="/book/hot/山茶花" target="_blank" style="background-image: url(http://www.mogujie.com/img/note_fav.png); ">山茶花</a>
+						<i style="background-image: url(http://www.mogujie.com/img/note_fav.png); "></i>
+					</li>
+					<li>
+						<a href="/book/hot/连衣裙" target="_blank" style="background-image: url(http://www.mogujie.com/img/note_fav.png); ">连衣裙</a>
+						<i style="background-image: url(http://www.mogujie.com/img/note_fav.png); "></i>
+					</li>
+					<li>
+						<a href="/book/hot/抹胸" target="_blank" style="background-image: url(http://www.mogujie.com/img/note_fav.png); ">抹胸</a>
+						<i style="background-image: url(http://www.mogujie.com/img/note_fav.png); "></i>
+					</li>
+					<li>
+						<a href="/book/hot/新款" target="_blank" style="background-image: url(http://www.mogujie.com/img/note_fav.png); ">新款</a>
+						<i style="background-image: url(http://www.mogujie.com/img/note_fav.png); "></i>
+					</li>
+					<li>
+						<a href="/book/hot/褶皱" target="_blank" style="background-image: url(http://www.mogujie.com/img/note_fav.png); ">褶皱</a>
+						<i style="background-image: url(http://www.mogujie.com/img/note_fav.png); "></i>
+					</li>
+					<li>
+						<a href="/book/hot/飘逸" target="_blank" style="background-image: url(http://www.mogujie.com/img/note_fav.png); ">飘逸</a>
+						<i style="background-image: url(http://www.mogujie.com/img/note_fav.png); "></i>
+					</li>
+					<li>
+						<a href="/book/hot/多层" target="_blank" style="background-image: url(http://www.mogujie.com/img/note_fav.png); ">多层</a>
+						<i style="background-image: url(http://www.mogujie.com/img/note_fav.png); "></i>
+					</li>
+					<li>
+						<a href="/book/hot/ASOS" target="_blank" style="background-image: url(http://www.mogujie.com/img/note_fav.png); ">ASOS</a>
+						<i style="background-image: url(http://www.mogujie.com/img/note_fav.png); "></i>
+					</li>
+					<li>
+						<a href="/book/hot/长裙" target="_blank" style="background-image: url(http://www.mogujie.com/img/note_fav.png); ">长裙</a>
+						<i style="background-image: url(http://www.mogujie.com/img/note_fav.png); "></i>
+					</li>
+					<li>
+						<a href="/book/hot/雪纺" target="_blank" style="background-image: url(http://www.mogujie.com/img/note_fav.png); ">雪纺</a>
+						<i style="background-image: url(http://www.mogujie.com/img/note_fav.png); "></i>
+					</li>
+					<li>
+						<a href="/book/hot/粉色" target="_blank" style="background-image: url(http://www.mogujie.com/img/note_fav.png); ">粉色</a>
+						<i style="background-image: url(http://www.mogujie.com/img/note_fav.png); "></i>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<div class="b_u_ft">
+		</div>
+	</div>
+	<% end %>
+	<% @books.each do |book| %>
+	<div class="i_w_f o" tid="<%= book[:_id] %>">
+		<div class="hd">
+		</div>
+		<div class="bd">
+			<ul class="pic">
+				<% book.twitter_files.each do |ftf| %>
+				<% if ftf.product %>
+				<li>
+					<a target="_blank" href="/note/11hlu8">
+					<img src="<%= ftf.product.pic_url %>_160x160.jpg" width="180" class="r3">
+					</a>
+					<span class="p">
+						<span>￥<%= ftf.product.price %></span>
+						<i></i>
+					</span>
+				</li>
+				<% end %>
+				<% if ftf.attachment %>
+				<li>
+					<a target="_blank" href="/note/11hlu8">
+					<img src="<%= ftf.attachment.attachment.url(:big) %>" width="180" class="r3">
+					</a>
+				</li>
+				<% end %>
+				<% end %>
+			</ul>
+			<div class="favorite">
+				<a class="favaImg" href="javascript:;"> </a>
+				<div class="favDiv">
+					<a href="/note/11hlu8" class="favCount" target="_blank"><%= book.favorites.count %></a>
+					<i></i>
+				</div>
+			</div>
+			<div class="tk">
+				<a target="_blank" href="/u/<%= book.user._id %>/"> <%= image_tag avatar(book.user,:s), :class=>"icard avt r3", :alt=>"#{book.user.name}" %></a>
+				<div class="inf">
+					<a target="_blank" href="/u/<%= book.user._id %>/" class="icard n"><%= book.user.name %></a>
+					<br>
+					<%= status_time_ago_in_words book.created_at %>
+				</div>
+				<p>
+					<%= book.content %>
+				</p>
+			</div>
+		</div><!-- .bd -->
+		<% unless book.comments.blank? %>
+		<ul class="cmt_bd">
+			<% book.comments.limit(3).each do |com| %>
+			<li class="">
+				<a target="_blank" href="/u/<%= com.user._id %>/"><%= image_tag avatar(com.user,:s), :class=>"icard avt r3", :alt=>"#{com.user.name}" %></a>
+				<p>
+					<a target="_blank" href="/u/<%= com.user._id %>/" class="icard n"><%= com.user.name %></a>：
+					<span><%= com.content %></span>
+				</p>
+			</li>
+			<% end %>
+			<li class="more">
+				<a target="_blank" href="/note/11yb4c"><%= book.comments.size %>评论</a>
+			</li>
+		</ul>
+		<% end %>
+	</div><!-- .i_w_f -->
+	<% end %>
+</div>

@@ -1016,6 +1016,12 @@ img.v {
 .t_l .sms a {
 	color: #09E;
 }
+.t_l .tl .fw:hover, .t_l .tl .fw.ed {
+	background-position: 0 -281px;
+}
+.t_l .tl .cmt:hover, .t_l .tl .cmt.ed {
+	background-position: 0 -315px;
+}
 .t_l .pic {
 	padding-top: 7px;
 	font-size: 0;
@@ -1092,6 +1098,29 @@ img.v {
 	font-size: 14px;
 	font-weight: bold;
 	display: block;
+}
+.t_l .tl .favDiv i {
+	background: url(../images/twitter_span.gif) no-repeat left bottom;
+	display: block;
+	float: left;
+	height: 17px;
+	width: 5px;
+}
+.t_l .u_like {
+	overflow: hidden;
+	zoom: 1;
+	margin-top: 4px;
+}
+.t_l .u_like li {
+	float: left;
+	margin-bottom: 4px;
+	margin-right: 4px;
+	height: 20px;
+	width: 20px;
+}
+.t_l .u_like li img {
+	height: 20px;
+	width: 20px;
 }
 .t_l .tl a {
 	color: #09E;

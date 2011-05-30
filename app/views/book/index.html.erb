@@ -185,7 +185,7 @@
 			</div>
 		</div>
 		<div class="imagewall_sort">
-			<h1 class="fl">XX们的最新分享<%= @books.size %></h1>
+			<h1 class="fl">XX们的最新分享</h1>
 			<div class="fl" style="margin-left:20px;">
 				<a>排序：</a>
 				<a href="/gall/1/all/pop" class="c">潮流</a>
@@ -193,76 +193,9 @@
 				<a href="/gall/1/all/new">最新</a>
 			</div>
 		</div>
-		<div id="imagewall_container" class="imagewall">
-			<% @books.each do |book| %>
-			<div class="i_w_f o" tid="<%= book[:_id] %>">
-				<div class="hd">
-				</div>
-				<div class="bd">
-					<ul class="pic">
-						<% book.twitter_files.each do |ftf| %>
-						<% if ftf.product %>
-						<li>
-							<a target="_blank" href="/note/11hlu8">
-							<img src="<%= ftf.product.pic_url %>_160x160.jpg" width="180">
-							</a>
-							<span class="p">
-								<span>￥<%= ftf.product.price %></span>
-								<i></i>
-							</span>
-						</li>
-						<% end %>
-						<% if ftf.attachment %>
-						<li>
-							<a target="_blank" href="/note/11hlu8">
-							<img src="<%= ftf.attachment.attachment.url(:medium) %>" width="180">
-							</a>
-						</li>
-						<% end %>
-						<% end %>
-					</ul>
-					<div class="favorite">
-						<a class="favaImg" href="javascript:;"> </a>
-						<div class="favDiv">
-							<a href="/note/11hlu8" class="favCount" target="_blank">9</a>
-							<i></i>
-						</div>
-					</div>
-					<div class="tk">
-						<a target="_blank" href="/u/<%= book.user._id %>/">
-				        <%= image_tag avatar(book.user,:s), :class=>"icard avt r3", :alt=>"#{book.user.name}" %>
-						</a>
-						<div class="inf">
-							<a target="_blank" href="/u/<%= book.user._id %>/" class="icard n"><%= book.user.name %></a>
-							<br>
-							<%= status_time_ago_in_words book.created_at %>
-						</div>
-						<p>
-							<%= book.content %>
-						</p>
-					</div>
-				</div><!-- .bd -->
-				<% unless book.comments.blank? %>
-				<ul class="cmt_bd">
-					<% book.comments.limit(3).each do |com| %>
-					<li class="">
-						<a target="_blank" href="/u/<%= com.user._id %>/">
-						<%= image_tag avatar(com.user,:s), :class=>"icard avt r3", :alt=>"#{com.user.name}" %>
-						</a>
-						<p>
-							<a target="_blank" href="/u/<%= com.user._id %>/" class="icard n"><%= com.user.name %></a>：
-							<span><%= com.content %></span>
-						</p>
-					</li>
-					<% end %>
-					<li class="more">
-						<a target="_blank" href="/note/11yb4c"><%= book.comments.size %>评论</a>
-					</li>
-				</ul>
-				<% end %>
-			</div><!-- .i_w_f -->
-			<% end %>
-		</div>
+
+		<%= render 'book' %>
+
 		<div class="clear">
 			&nbsp;&nbsp;&nbsp;&nbsp;
 		</div>

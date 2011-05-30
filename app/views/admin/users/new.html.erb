@@ -1,0 +1,27 @@
+<div class="mainarea">
+  <div class="maininner">
+    <div class="tabs_header">
+      <ul class="tabs">
+        <li><a href="/admin/users"><span>管理用户</span></a></li>
+		<li class="active"><a href="<%= new_admin_user_path %>"><span>新建用户</span></a></li>
+      </ul>
+    </div>
+    <%= form_for @user, :url => admin_users_path do |f| %>
+      <div class="bdrcontent">
+        <table cellspacing="0" cellpadding="0" class="formtable">
+          <tbody>
+            <tr>
+              <th style="width:12em;">昵称(以逗号分割)</th>
+              <td><%= f.text_area :name, :class=>'t_input',:size=>'60x6' %></td>
+            </tr>
+          </tbody></table>
+      </div>
+      <div class="footactions">
+        <%= f.hidden_field :role, :value => 1 %>
+        <%= f.hidden_field :password, :value => 'o!h@i#m$y%r^o&b*o(t)' %>
+        <%= f.hidden_field :password_confirmation, :value => 'o!h@i#m$y%r^o&b*o(t)' %>
+        <%= f.submit '提交',:class=>'submit' %>
+      </div>
+    <% end %>
+  </div>
+</div>

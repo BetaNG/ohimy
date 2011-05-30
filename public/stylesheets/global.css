@@ -536,14 +536,6 @@ hr.null10 {
 	color: #333;
 }
 
-@
--moz-document url-prefix       (){ # top_seek input.g_txt {
-	height: 24px;
-	line-height: normal;
-	padding-top: 2px;
-}
-
-}
 #globalsearch-go {
 	background: url(../images/top_seek_bt.gif) 0
 		0 no-repeat;
@@ -1419,13 +1411,6 @@ textarea:focus {
 	width: 63px;
 }
 
-@
--moz-document url-prefix       (){ input .bt_sub2,input.bt_cancle2,input.bt_sub4
-	{
-	padding-bottom: 2px;
-}
-
-}
 .bt_sub2w,.bt_sub2w:focus,.bt_sub3w,.bt_sub3w:focus,.bt_sub4w,.bt_sub4w:focus
 	{
 	height: 27px;

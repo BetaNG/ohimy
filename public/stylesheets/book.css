@@ -1,6 +1,12 @@
 .gc {
 	color: #E71F8D;
 }
+.r3 {
+	-moz-border-radius: 3px;
+	-khtml-border-radius: 3px;
+	-webkit-border-radius: 3px;
+	border-radius: 3px;
+}
 .top_tags {
 	width:940px;
 	margin:0 20px;

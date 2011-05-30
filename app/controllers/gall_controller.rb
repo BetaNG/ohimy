@@ -1,8 +1,8 @@
 # encoding: utf-8
 class GallController < ApplicationController
   before_filter :authenticate_user!
-  before_filter :only_post, :only => [:get_item_from_url,:to_forward,:page]
-  before_filter :load_twitter, :only => [:comment,:to_forward]
+  before_filter :only_post, :only => [:get_item_from_url,:to_forward,:page,:fav]
+  before_filter :load_twitter, :only => [:comment,:to_forward,:fav]
   def index
     @twitters = Twitter.find(:all,:sort=>['_id', :desc]).paginate(page: 1, per_page: 12)
   end
@@ -84,6 +84,15 @@ class GallController < ApplicationController
     twitter.update_attribute(:ftimes,twitter[:ftimes]+1)
     @twitter = forward.forwards.create(:content=>params[:content],:user=>current_user)
     render :partial => 'twitter'
+  end
+  
+  def fav
+    @fav = current_user.favorites.build(:favoritable => @twitter)
+    if @fav.save
+      render :text => @twitter.favorites.count
+    else
+      render :text => "false"
+    end
   end
 
   private

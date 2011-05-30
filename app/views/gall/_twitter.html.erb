@@ -110,27 +110,33 @@
 			<% end %>
 		</ul>
 		<div class="tl">
-			<a class="fw" href="javascript:;" w="<%= @twitter[:_id] %>">转发<%= "(#{@twitter[:ftimes]})" %></a>
-			<a class="cmt" href="javascript:;" w="<%= @twitter[:_id] %>">评论<%= "(#{@twitter.comments.count})" %></a>
+			<a class="add_fav fav" href="javascript:;" w="f"></a>
+			<div class="favDiv">
+				<a class="favCount" target="_blank" href="/note/11ue46 "><%= @twitter.favorites.count %></a>
+				<i></i>
+			</div>
+			<a class="fw ed" href="javascript:;" w="<%= @twitter[:_id] %>">转发<%= "(#{@twitter[:ftimes]})" %></a>
+			<a class="cmt ed" href="javascript:;" w="<%= @twitter[:_id] %>">评论<%= "(#{@twitter.comments.count})" %></a>
 		</div>
 		<div class="cf_b" t="cmt" style="display: none">
 			<img src="../images/commnet_arrow.png" class="cf_a">
 			<form accept-charset="UTF-8" action="/gall/comment" id="comment_form" method="post">
-			<div class="cf_pub_b r5">
-				<a href="javascript:;">
-				<img src="../images/add_face_c.png" w="f" class="add_face fl">
-				</a>
-				<input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>" />
-				<input type="hidden" name="id" value="<%= @twitter[:_id] %>">
-				<textarea class="pub_txt fl rl3" cols="40" id="comment_content" name="content" rows="20" style="height: 21px;"></textarea> 
-				<input class="pub_btn fl rr3" id="comment_submit" name="commit" type="submit" value="评论" /> 
-				<div class="cf_opt">
-					<input type="checkbox" id="c_cb_11qcq0" class="c_cb">
-					<label for="cb_11qcq0">
-						转发给我的粉丝
-					</label>
+				<div class="cf_pub_b r5">
+					<a href="javascript:;">
+					<img src="../images/add_face_c.png" w="f" class="add_face fl">
+					</a>
+					<input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>" />
+					<input type="hidden" name="id" value="<%= @twitter[:_id] %>">
+					<textarea class="pub_txt fl rl3" cols="40" id="comment_content" name="content" rows="20" style="height: 21px;">
+					</textarea>
+					<input class="pub_btn fl rr3" id="comment_submit" name="commit" type="submit" value="评论" />
+					<div class="cf_opt">
+						<input type="checkbox" id="c_cb_11qcq0" class="c_cb">
+						<label for="cb_11qcq0">
+							转发给我的粉丝
+						</label>
+					</div>
 				</div>
-			</div>
 			</form>
 			<ul class="c_l rb5">
 				<% @twitter.comments.limit(4).each do |comment| %>
